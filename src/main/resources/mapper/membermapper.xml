@@ -21,4 +21,7 @@
     <select id="findPw" parameterType="memberDto" resultType="memberDto">
         SELECT * FROM member WHERE member_name=#{memberName} AND member_email=#{memberEmail} AND member_id=#{memberId}
     </select>
+    <update id="modifyMemberConfirm" parameterType="memberDto">
+        UPDATE member SET member_confirm = 1 WHERE member_id=#{memberId}
+    </update>
 </mapper>

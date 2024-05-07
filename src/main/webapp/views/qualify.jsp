@@ -189,6 +189,7 @@
 
             if (ageValid && marriageValid && incomeValid && movingValid) {
                 alert('조건을 충족합니다!');
+                window.location.href = '<c:url value="/qualifyimpl"/>'
             }
         });
 

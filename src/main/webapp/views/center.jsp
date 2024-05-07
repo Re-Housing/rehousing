@@ -39,7 +39,7 @@
                 </div>
                 <div id="myInfoDiv">
                     <c:choose>
-                        <c:when test="${memberId == null}">
+                        <c:when test="${memberDto == null}">
                             <div id="infoDiv">
                                 <img id="infoLogo" src="<c:url value="/img/logo.png"/>"/>
                                 <p class="aboutDiv">
@@ -63,10 +63,17 @@
                         <c:otherwise>
                             <div id="info">
                                 <div id="memberDiv">
-                                    <span id="memberName">${memberName}</span><span>&nbsp;님</span>
+                                    <span id="memberName">${memberDto.memberName}</span><span>&nbsp;님</span>
                                 </div>
                                 <div class="myInfoClass">
-                                    <img src="<c:url value="/img/qualify.png"/>"/><span>자격 조회 여부</span><span class="infoContent">X</span>
+                                    <c:choose>
+                                        <c:when test="${memberDto.memberConfirm == true}">
+                                            <img src="<c:url value="/img/qualify.png"/>"/><span>자격 조회 여부</span><span class="infoContent">O</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="<c:url value="/img/qualify.png"/>"/><span>자격 조회 여부</span><span class="infoContent">X</span>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                                 <div class="myInfoClass">
                                     <img src="<c:url value="/img/likes.png"/>"/><span>찜 개수</span><span class="infoContent">0 개</span>

@@ -49,4 +49,8 @@ public class MemberService implements RehousingService<String, MemberDto> {
     public MemberDto checkIdValid(MemberDto memberDto) throws Exception {
         return memberRepository.checkIdValid(memberDto);
     }
+
+    public void modifyMemberConfirm(MemberDto memberDto) throws Exception {
+        memberRepository.modifyMemberConfirm(memberDto);
+    }
 }

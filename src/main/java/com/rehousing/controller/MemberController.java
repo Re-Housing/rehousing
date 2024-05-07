@@ -61,8 +61,7 @@ public class MemberController {
             } else if (!loginMember.getMemberPw().equals(pw)) {
                 return "pwFail";
             } else {
-                httpSession.setAttribute("memberId", loginMember.getMemberId());
-                httpSession.setAttribute("memberName", loginMember.getMemberName());
+                httpSession.setAttribute("memberDto", loginMember);
                 return "success";
             }
         } catch (Exception e) {
@@ -89,8 +88,7 @@ public class MemberController {
     public String signinimpl(MemberDto memberDto, HttpSession httpSession) {
         try {
             memberService.add(memberDto);
-            httpSession.setAttribute("memberId", memberDto.getMemberId());
-            httpSession.setAttribute("memberName", memberDto.getMemberName());
+            httpSession.setAttribute("memberDto", memberDto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
