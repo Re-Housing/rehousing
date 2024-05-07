@@ -57,7 +57,8 @@ public class ReservationController {
        // model.addAttribute("userId",String.valueOf(session.getAttribute("memberId")));
         HouseDto houseDetail = reservationService.getHouseDetail(Integer.valueOf(no));
         model.addAttribute("house", houseDetail);
-        return "reservation/reserve";
+        model.addAttribute("center", "reservation/reserve");
+        return "index";
     }
     //예약완료
     @RequestMapping("/reserve/success")
@@ -83,8 +84,9 @@ public class ReservationController {
         model.addAttribute("reservationList", reservationList);
         model.addAttribute("today", now);
         model.addAttribute("count",count);
+        model.addAttribute("center","reservation/view");
 
-        return "reservation/view";
+        return "index";
     }
     //예약취소
     @RequestMapping("/reserve/cancle")

@@ -283,7 +283,13 @@
             $('.payment_kind').click(function(){
                 let what = $(this).attr("value");
                 if(what=='카카오페이'){
-                   reserve.kakaopay(startdate, enddate);
+                   reserve.kakaopay();
+                }
+                if(what=='무통장입금'){
+                    reserve.banktransfer();
+                }
+                if(what=='신용카드'){
+                    reserve.creditcard();
                 }
             });
 
@@ -322,6 +328,8 @@
                 let phone2=$('#phone2').val();
                 let phone3=$('#phone3').val();
                 let email1=$('#email1').val();
+                let st = $('#startdate').val();
+                let end = $('#enddate').val();
                 if(name==null||name==''){
                     alert('예약자 성명을 입력하세요');
                     $('#name').focus();
@@ -339,6 +347,10 @@
                 }
                 if(email2==null||email2==''){
                     alert('이메일 형식을 선택하세요');
+                    return;
+                }
+                if(st==null||st==''||end==null||end==''){
+                    alert('날짜를 선택해주세요');
                     return;
                 }
                 $('#payment').css('display', 'flex');
@@ -401,6 +413,12 @@
                     console.log(error);
                 }
             })
+        },
+        banktransfer: function(){
+            alert("무통장입금");
+        },
+        creditcard: function (){
+            alert("신용카드");
         }
     };
     $(function(){
