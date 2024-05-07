@@ -381,14 +381,14 @@
                 if (rsp.success) {
                     $('#payment').css('display', 'none');
                     $('#inner_payment').css('display', 'none');
-                    reserve.paysuccess(rsp);
+                    reserve.paysuccess(rsp,3);
                 } else {
                     alert("실패");
                     console.log(rsp);
                 }
             });
         },
-        paysuccess: function (rsp){
+        paysuccess: function (rsp, num){
             console.log(rsp);
             let userId = '${memberId}';
             $.ajax({
@@ -402,7 +402,7 @@
                     enddate: $('#enddate').val(),
                     houseIdx: ${house.houseIdx},
                     resName: rsp.buyer_name,
-                    rpid: 3
+                    rpid: num
                 },
                 success: function(){
                     alert('예약이 완료되었습니다.');
@@ -418,7 +418,37 @@
             alert("무통장입금");
         },
         creditcard: function (){
-            alert("신용카드");
+            let IMP = window.IMP;
+            IMP.init("imp74352341");
+
+            let today = new Date();
+            let hours = today.getHours(); // 시
+            let minutes = today.getMinutes();  // 분
+            let seconds = today.getSeconds();  // 초
+            let milliseconds = today.getMilliseconds();
+            let makeMerchantUid = hours +  minutes + seconds + milliseconds;
+            IMP.request_pay({
+                pg : 'nice',
+                pay_method:"card",
+                merchant_uid: "IMP"+makeMerchantUid,
+                name : $('#address').text(),
+                amount : 100,
+                buyer_email : $('#email1').val()+'@'+$('#email2').val(),
+                buyer_name : $('#name').val(),
+                buyer_tel : $('#phone1').val()+'-'+$('#phone2').val()+'-'+$('#phone3').val(),
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456',
+                m_redirect_url:"/"
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    $('#payment').css('display', 'none');
+                    $('#inner_payment').css('display', 'none');
+                    reserve.paysuccess(rsp,1);
+                } else {
+                    alert("실패");
+                    console.log(rsp);
+                }
+            });
         }
     };
     $(function(){

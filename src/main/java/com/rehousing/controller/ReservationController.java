@@ -112,7 +112,10 @@ public class ReservationController {
         List<ReservationDto> ls = reservationService.getReservationRange(no);
         return ls;
     }
-
+    @RequestMapping("/test")
+    public String test(){
+        return "reservation/creditcard";
+    }
 
 
 
