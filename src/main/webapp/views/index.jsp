@@ -182,7 +182,6 @@
         }
 
         .loginBtn {
-            position: relative;
             width: 100%;
             font-weight: bold;
             font-size: 1.2rem;
