@@ -22,7 +22,7 @@ public class MainController {
 
     // 지원자격 화면
     @RequestMapping("/qualify")
-    public String memberQualify(Model model) {
+    public String memberqualify(Model model) {
         model.addAttribute("center", "qualify");
         return "index";
     }

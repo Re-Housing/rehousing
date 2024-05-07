@@ -4,7 +4,6 @@ import com.rehousing.app.data.dto.MemberDto;
 import com.rehousing.app.frame.RehousingService;
 import com.rehousing.app.repository.MemberRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
