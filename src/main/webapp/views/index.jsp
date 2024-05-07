@@ -272,7 +272,7 @@
             var memberId = "${memberId}";
 
             if (memberId) {
-                window.location.href = "<c:url value="/memberQualify"/>";
+                window.location.href = "<c:url value="/qualify"/>";
             } else {
                 alert("로그인이 필요합니다.");
                 window.location.href = "<c:url value="/login"/>";
