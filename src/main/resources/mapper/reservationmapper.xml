@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rehousing.app.repository.ReservationRepository">
+
+    <insert id="insert">
+       insert into reservation
+       values(0, #{phone}, #{startdate}, #{enddate}, now(), #{totalprice}, #{memberId}, #{houseIdx}, '예약완료', #{resName})
+    </insert>
+    <select id="selectHouseDetail" parameterType="Integer" resultType="houseDto">
+        select house_idx, housetype, address, price, city_name, url
+        from house h left join house_pic p on h.house_idx = p.house_id
+        where h.house_idx = #{no}
+    </select>
+    <select id="selectReservation" parameterType="String" resultType="reservationDto">
+        select res_id, phone, startdate, enddate, totalprice, r.house_idx, url, address, res_status
+        from reservation r left join house_pic h on r.house_idx=h.house_id
+                           left join house ho on ho.house_idx = r.house_idx where member_id=#{memberId}
+        order by res_id desc
+        limit ${page},2
+    </select>
+    <update id="updateResStatus" parameterType="Integer">
+        update reservation
+        set res_status = '예약취소'
+        where res_id=#{resId}
+    </update>
+    <select id="selectDetail" parameterType="Integer" resultType="reservationDto">
+        select r.res_id, phone, startdate, enddate, totalprice, r.house_idx, url, address, res_status, res_name, rp.kind
+        from reservation r left join house_pic h on r.house_idx=h.house_id
+                           left join house ho on ho.house_idx = r.house_idx
+                           left join payment p on p.res_id = r.res_id
+                           left join reserve_payment rp on rp.rpid = p.rp_id
+        where r.res_id=#{resId}
+    </select>
+    <select id="selectTotalCount" parameterType="String" resultType="Integer">
+        select count(*) from reservation where member_id = #{memberId}
+    </select>
+</mapper>

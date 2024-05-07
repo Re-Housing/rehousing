@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rehousing.app.repository.MemberRepository">
+    <select id="selectOne" parameterType="String" resultType="memberDto">
+        SELECT * FROM member WHERE member_id=#{id}
+    </select>
+    <select id="select" resultType="memberDto">
+        SELECT * FROM member
+    </select>
+    <insert id="insert" parameterType="memberDto">
+        INSERT INTO member VALUES (#{memberId},#{memberPw},#{memberName},#{memberEmail}, 0)
+    </insert>
+    <select id="checkIdValid" parameterType="memberDto" resultType="memberDto">
+        SELECT * FROM member WHERE member_id=#{memberId}
+    </select>
+    <select id="findId" parameterType="memberDto" resultType="memberDto">
+        SELECT * FROM member WHERE member_name=#{memberName} AND member_email=#{memberEmail}
+    </select>
+    <select id="findPw" parameterType="memberDto" resultType="memberDto">
+        SELECT * FROM member WHERE member_name=#{memberName} AND member_email=#{memberEmail} AND member_id=#{memberId}
+    </select>
+</mapper>

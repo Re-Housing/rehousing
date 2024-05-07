@@ -1,0 +1,48 @@
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  mvc:
+    view:
+      prefix: /views/
+      suffix: .jsp
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/rehousedb?characterEncoding=utf8
+    username: ENC(TtjoH+laZsmukmk6pohUTw==)
+    password: ENC(HznPgji+lD6/4M4sFkEZtg==)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ENC(Bcck/HKS7Yi5nR0edvFrvyq9sP2UXvhb)
+    password: ENC(V1ThnfbLhzZyR4Xh8oC6Jb8+qEhfID4zh1OhqeNxU9c=)
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+mybatis:
+  type-aliases-package: com.rehousing.app.data.dto
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: info
+app:
+  dir:
+    imgdir: file:///C:/project/imgs/ #화면 출력용
+    uploadimgdir: C:/project/imgs/ #파일 write용
+
+  key:
+     impcode: ENC(TWdPV+PFlmgzrVNH3AOSl9+OUfI7PBLi)
+     impapikey: ENC(iAqf0J0PVqp0zI8tOdQ/djZoXQqfZoywxWgEjB4vu2A=)
+     impapisecretkey: ENC(pgPtNx5nmiuJe2avVBG9V8IL777qfyavAP0VIdu9GDfwoFNysR+7ZhsAHoyiUNyOhhRqsTOj+6p6Z+jgL1D6dQGvvSQzHiz2rOVR8mfn4TJZ3jENE53IFrJUWTZE3MYn)
+     KAKAO_REST_API_KEY: ENC(tfnLeWp3M6drPs/QXBAm+I1vCrz9SrAs0CaQekPtgDnrZEDroUG7CfZIhtSdyDSi)
+     KAKAO_JS_API_KEY: ENC(dF+MmWXbY19BYGxwfVD7R1jh3Cy6O0B0L1kqxNfGHetXLxKLuVDsr6Qb9WqkQrdQ)
+
