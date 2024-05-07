@@ -36,4 +36,10 @@
     <select id="selectTotalCount" parameterType="String" resultType="Integer">
         select count(*) from reservation where member_id = #{memberId}
     </select>
+    <select id="selectReservationRange" parameterType="Integer" resultType="reservationDto">
+        select startdate, enddate from reservation
+        where house_idx=#{no}
+          and res_status='예약완료'
+        order by startdate
+    </select>
 </mapper>

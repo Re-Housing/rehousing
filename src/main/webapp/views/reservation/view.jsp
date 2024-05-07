@@ -119,7 +119,7 @@
                 </c:choose>
             </div>
             <div id="paging">
-                <c:forEach begin="1" end="${count/2}" var="index">
+                <c:forEach begin="1" end="${count}" var="index">
                     <button id="pageBtn" onclick="location.href='/reserve/view?page=${index}'" type="button">${index}</button>
                 </c:forEach>
             </div>
@@ -145,7 +145,7 @@
                     </div>
                     <div>
                         <h4>날짜</h4>
-                        <h4 id="reserve_date">05월 05일 ~ 05월 08일</h4>
+                        <h4 id="reserve_date"></h4>
                     </div>
                 </div>
             </div>

@@ -190,6 +190,8 @@
                         <div class="reserve_calender">
                             <h3>날짜</h3>
                             <input type="text" id="daterange" name="daterange"/>
+                            <input type="hidden" id="startdate" name="startdate"/>
+                            <input type="hidden" id="enddate" name="enddate"/>
                         </div>
                     </div>
                 </div>
@@ -278,30 +280,13 @@
 <script>
     let reserve = {
         init: function(){
-            let startdate = '';
-            let enddate = '';
             $('.payment_kind').click(function(){
                 let what = $(this).attr("value");
                 if(what=='카카오페이'){
                    reserve.kakaopay(startdate, enddate);
                 }
             });
-            $('#daterange').change(()=>{
-                let range = $('#daterange').val();
-                let start = range.substring(6,10)+'-'+range.substring(0,2)+'-'+range.substring(3,5);
-                let end = range.substring(19,23)+'-'+range.substring(13,15)+'-'+range.substring(16,18);
 
-                let oldDate = new Date(start);
-                let newDate = new Date(end);
-                let diff = Math.abs(newDate.getTime() - oldDate.getTime());
-                diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                startdate=oldDate;
-                enddate=newDate;
-                $('#showrange').text(diff+'박');
-                let total = 10000 * Math.ceil(diff/7);
-                $('#total1').text(total+'원');
-                $('#total2').text(total+'원');
-            });
             $('#btn_cancle').click(()=>{
                 $('#payment').css('display', 'none');
                 $('#inner_payment').css('display', 'none');
@@ -360,7 +345,7 @@
                 $('#inner_payment').css('display', 'block');
             });
         },
-        kakaopay: function(startdate, enddate){
+        kakaopay: function(){
             let IMP = window.IMP;
             IMP.init("imp74352341");
 
@@ -384,23 +369,25 @@
                 if (rsp.success) {
                     $('#payment').css('display', 'none');
                     $('#inner_payment').css('display', 'none');
-                    reserve.paysuccess(rsp, startdate, enddate);
+                    reserve.paysuccess(rsp);
                 } else {
+                    alert("실패");
                     console.log(rsp);
                 }
             });
         },
-        paysuccess: function (rsp, startdate, enddate){
+        paysuccess: function (rsp){
             console.log(rsp);
+            let userId = '${memberId}';
             $.ajax({
                 url:'<c:url value="/reserve/success"/>',
                 data:{
                     email: rsp.buyer_email,
                     phone: rsp.buyer_tel,
                     totalprice: rsp.paid_amount,
-                    memberId: 'user1',
-                    startdate: startdate,
-                    enddate: enddate,
+                    memberId: userId,
+                    startdate: $('#startdate').val(),
+                    enddate: $('#enddate').val(),
                     houseIdx: ${house.houseIdx},
                     resName: rsp.buyer_name,
                     rpid: 3
@@ -429,49 +416,66 @@
 </script>
 <script>
     $(function() {
-        $('input[name="daterange"]').daterangepicker({
-            opens: 'left'
-        }, function(start, end, label) {
-            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-        });
         let now = new Date();
         let year = now.getFullYear();
         let month = (now.getMonth()+1).toString().padStart(2,'0');
         let day = now.getDate().toString().padStart(2,'0');
-        let today = month+'/'+day+'/'+year;
-        $('#demo').daterangepicker({
-            "minYear": 2024,
-            "maxYear": 2024,
-            "startDate": today,
-            "endDate": "05/24/2024",
-            "minDate": today,
-            "maxDate": "08/09/2024"
+        let today = year+'-'+month+'-'+day;
+        let disabledDateRanges = [
+        ];
+        $.ajax({
+            url:'/reserve/finddate',
+            data:{
+                houseIdx : ${house.houseIdx},
+            },
+            success:function(res){
+                console.log(res);
+                disabledDateRanges = res;
+            },
+            error: function (error){
+                alert(error);
+            }
+        })
+
+        $('#daterange').daterangepicker({
+            opens:'left',
+            dateFormat: 'yyyy-mm-dd',
+            startDate: moment(now).add(1, 'days'),
+            endDate: moment(now).add(2, 'days'),
+            datesDisabled: ["2024-05-18"],
+            locale: {
+                format: 'YYYY-MM-DD',
+                daysOfWeek:["일","월","화","수","목","금","토"],
+                monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+                applyLabel: "확인",
+                cancelLabel: "취소"
+            },
+            minDate: today,
+            maxDate: "2024-08-09",
+            isInvalidDate: function(date) {
+                // datesDisabled에 있는 날짜들을 비활성화합니다.
+                // var disabledDates = ["2024-05-18", "2024-05-29"];
+                // return disabledDates.includes(date.format('YYYY-MM-DD'));
+                for (let i = 0; i < disabledDateRanges.length; i++) {
+                    let range = disabledDateRanges[i];
+                    if (date.isBetween(range.startdate, range.enddate, null, '[]')) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }, function(start, end, label) {
-            alert(start.format('YYYY-MM-DD'));
             console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+            let oldDate = new Date(start);
+            let newDate = new Date(end);
+            let diff = Math.abs(newDate.getTime() - oldDate.getTime());
+            diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            $('#showrange').text(diff+'박');
+            let total = 10000 * Math.ceil(diff/7);
+            $('#total1').text(total+'원');
+            $('#total2').text(total+'원');
+            $('#startdate').val(oldDate);
+            $('#enddate').val(newDate);
         });
-        // $("#txtDate").daterangepicker({
-        //     locale:{
-        //         "separator":"-",
-        //         "format":'YYYY-MM-DD',
-        //         "applyLabel":"확인",
-        //         "cancelLabel":"취소",
-        //         "daysOfWeek":["일","월","화","수","목","금","토"],
-        //         "monthNames":["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"]
-        //     },
-        //     timePicker: true,                        // 시간 노출 여부
-        //     showDropdowns: true,                     // 년월 수동 설정 여부
-        //     autoApply: true,                         // 확인/취소 버튼 사용여부
-        //     timePicker24Hour: true,                  // 24시간 노출 여부(ex> true : 23:50, false : PM 11:50)
-        //     timePickerSeconds: true,                 // 초 노출 여부
-        //     singleDatePicker: true
-        // });
-        // $("#txtDate").on('show.daterangepicker', function (ev, picker) {
-        //     $(".yearselect").css("float", "left");
-        //     $(".monthselect").css("float", "right");
-        //     $(".cancelBtn").css("float", "right");
-        // });
-
-
     });
 </script>

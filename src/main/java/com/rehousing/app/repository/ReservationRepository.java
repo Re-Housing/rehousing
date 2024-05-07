@@ -17,4 +17,5 @@ public interface ReservationRepository extends RehousingRepository<Integer, Rese
     Integer updateResStatus(@Param("resId") Integer resId);
     ReservationDto selectDetail(@Param("resId") Integer resId);
     Integer selectTotalCount(@Param("memberId") String memberId);
+    List<ReservationDto> selectReservationRange(@Param("no") Integer no);
 }

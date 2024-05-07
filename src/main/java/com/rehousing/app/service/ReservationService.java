@@ -53,5 +53,8 @@ public class ReservationService implements RehousingService<Integer, Reservation
     public Integer getTotalCount(String memberId) throws Exception{
         return reservationRepository.selectTotalCount(memberId);
     }
+    public List<ReservationDto> getReservationRange(Integer no) throws Exception{
+        return reservationRepository.selectReservationRange(no);
+    }
 
 }
