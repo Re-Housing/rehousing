@@ -11,7 +11,7 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/rehousedb?characterEncoding=utf8
+    url: jdbc:log4jdbc:mysql://172.16.21.74:3306/rehousedb?characterEncoding=utf8
     username: ENC(TtjoH+laZsmukmk6pohUTw==)
     password: ENC(HznPgji+lD6/4M4sFkEZtg==)
   mail:

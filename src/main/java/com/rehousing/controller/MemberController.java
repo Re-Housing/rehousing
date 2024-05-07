@@ -5,8 +5,6 @@ import com.rehousing.app.service.EmailService;
 import com.rehousing.app.service.MemberService;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpSession;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,9 +12,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+/*********************************
+ * @function : Member Controller
+ * @author : 김민표
+ * @Date : April 30. 2024
+ * 로그인화면 controller 추가 April 30. 2024
+ * 아이디찾기화면 controller 추가 May 1. 2024
+ * 비밀번호찾기화면 controller 추가 May 1. 2024
+ * 회원가입화면 controller 추가 May 2. 2024
+ * 회원가입 controller 수정 May 7. 2024
+ *********************************/
 @Controller
 @RequiredArgsConstructor
 @Slf4j
@@ -25,7 +32,7 @@ public class MemberController {
     final MemberService memberService;
     final EmailService emailService;
 
-
+    // 로그인 화면
     @RequestMapping("/login")
     public String login(Model model) {
         model.addAttribute("center", dir + "login");
@@ -40,6 +47,7 @@ public class MemberController {
         return "index";
     }
 
+    // 로그인 처리
     @ResponseBody
     @RequestMapping("/loginimpl")
     public String loginimpl(MemberDto memberDto, HttpSession httpSession) {
@@ -62,18 +70,21 @@ public class MemberController {
         }
     }
 
+    // 로그아웃 처리
     @RequestMapping("/logout")
     public String logout(HttpSession httpSession) {
         httpSession.invalidate();
         return "index";
     }
 
+    // 회원가입 화면
     @RequestMapping("/signin")
     public String signin(Model model) {
         model.addAttribute("center", dir + "signin");
         return "index";
     }
 
+    // 회원가입 처리
     @RequestMapping("/signinimpl")
     public String signinimpl(MemberDto memberDto, HttpSession httpSession) {
         try {
@@ -86,6 +97,7 @@ public class MemberController {
         return "redirect:/";
     }
 
+    // 회원가입 - 아이디 중복 체크 처리
     @ResponseBody
     @RequestMapping("/checkidvalid")
     public String checkidvalid(MemberDto memberDto) {
@@ -101,12 +113,14 @@ public class MemberController {
         }
     }
 
+    // 아이디 찾기 화면
     @RequestMapping("/findid")
     public String findid(Model model) {
         model.addAttribute("center", dir + "findId");
         return "index";
     }
 
+    // 아이디 찾기 처리
     @ResponseBody
     @RequestMapping("/findidimpl")
     public String findidimpl(MemberDto memberDto) {
@@ -123,12 +137,14 @@ public class MemberController {
         }
     }
 
+    // 비밀번호 찾기 화면
     @RequestMapping("/findpw")
     public String findpw(Model model) {
         model.addAttribute("center", dir + "findPw");
         return "index";
     }
 
+    // 비밀번호 찾기 처리
     @ResponseBody
     @RequestMapping("/findpwimpl")
     public String findpwimpl(MemberDto memberDto) {
