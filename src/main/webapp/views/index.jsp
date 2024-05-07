@@ -179,7 +179,6 @@
             height: 15%;
             width: 100%;
             justify-content: center;
-            margin-top: 3%;
         }
 
         .loginBtn {
