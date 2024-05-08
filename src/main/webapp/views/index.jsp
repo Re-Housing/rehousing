@@ -267,7 +267,7 @@
     </style>
     <script>
         function checkLogin() {
-            var memberId = "${memberId}";
+            var memberId = "${memberDto.memberId}";
 
             if (memberId) {
                 window.location.href = "<c:url value="/qualify"/>";

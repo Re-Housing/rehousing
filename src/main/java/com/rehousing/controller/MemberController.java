@@ -2,6 +2,7 @@ package com.rehousing.controller;
 
 import com.rehousing.app.data.dto.MemberDto;
 import com.rehousing.app.service.EmailService;
+import com.rehousing.app.service.KakaoLoginService;
 import com.rehousing.app.service.MemberService;
 import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /*********************************
@@ -33,6 +35,7 @@ public class MemberController {
     String dir = "member/";
     final MemberService memberService;
     final EmailService emailService;
+    final KakaoLoginService kakaoLoginService;
 
     @Value("${app.key.KAKAO_REST_API_KEY}")
     private String kakaoRestApiKey;
@@ -76,8 +79,8 @@ public class MemberController {
     }
 
     // 로그아웃 처리
-    @RequestMapping("/logout")
-    public String logout(HttpSession httpSession) {
+    @RequestMapping("/logoutimpl")
+    public String logoutimpl(HttpSession httpSession) {
         httpSession.invalidate();
         return "index";
     }

@@ -137,7 +137,7 @@
         });
 
         $('#kakaoLoginBtn').click(() => {
-            window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=' +
+            window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&prompt=login&client_id=' +
                 "${kakaoRestApiKey}" +
                 '&redirect_uri=' +
                 'http://localhost:80/';

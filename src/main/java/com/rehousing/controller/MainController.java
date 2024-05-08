@@ -41,6 +41,18 @@ public class MainController {
     // 메인 화면
     @RequestMapping("/")
     public String main(@RequestParam(value = "code", required = false) String code, HttpSession httpSession) {
+        MemberDto loginMemberDto = (MemberDto) httpSession.getAttribute("memberDto");
+        // 로그인을 한 경우
+        if (loginMemberDto != null) {
+            try {
+                // 상태 업데이트
+                httpSession.setAttribute("memberDto", memberService.getId(loginMemberDto));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        // Kakao 로그인을 통한 로그인 / 회원가입
         try {
             if (code != null) {
                 String accessToken = kakaoLoginService.getAccessTokenFromKakao(kakaoRestApiKey, code);
@@ -54,16 +66,14 @@ public class MainController {
                                                     memberId(memberId).
                                                     memberEmail(memberEmail).build();
 
-                    MemberDto loginMemberDto = memberService.get(memberId);
-
-                    if (loginMemberDto == null) {
+                    MemberDto KakaoLoginMemberDto = memberService.get(memberId);
+                    if (KakaoLoginMemberDto == null) {
                         // 처음 카카오 로그인 한 경우
                         memberService.add(memberDto);
                         httpSession.setAttribute("memberDto", memberDto);
                     } else {
                         // 카카오 로그인을 통해 회원가입을 한 경우
-                        httpSession.setAttribute("memberDto", loginMemberDto);
-
+                        httpSession.setAttribute("memberDto", KakaoLoginMemberDto);
                     }
                 }
             }

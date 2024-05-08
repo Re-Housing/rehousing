@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Map;
 @Slf4j
 @Service
 public class KakaoLoginService {
+    // Kakao 서버로부터 Access Token을 받아오는 메소드
     public String getAccessTokenFromKakao(String client_id, String code) throws IOException {
         // Kakao Server에 POST 요청
         String reqURL = "https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id="+client_id+"&code=" + code;
@@ -49,7 +51,8 @@ public class KakaoLoginService {
         return accessToken;
     }
 
-    public HashMap<String, Object> getUserInfo(String accessToken) throws IOException {
+    // access Token을 이용하여 유저 정보를 가져오는 메소드
+    public HashMap<String, Object> getUserInfo(String access_token) throws IOException {
         // 클라이언트 요청 정보
         HashMap<String, Object> userInfo = new HashMap<String, Object>();
 
@@ -58,7 +61,7 @@ public class KakaoLoginService {
         URL url = new URL(reqURL);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+        conn.setRequestProperty("Authorization", "Bearer " + access_token);
 
         int responseCode = conn.getResponseCode();
         System.out.println("responseCode : " + responseCode);

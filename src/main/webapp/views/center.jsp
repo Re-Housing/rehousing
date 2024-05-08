@@ -25,7 +25,7 @@
             let res = confirm("로그아웃 하시겠습니까?");
 
             if (res) {
-                window.location.href = '<c:url value="/logout"/>'
+                window.location.href = '<c:url value="/logoutimpl"/>';
             }
         })
     })
