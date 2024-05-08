@@ -28,7 +28,7 @@ public class EmailService {
         helper.setSubject("[ReHousing] 아이디 찾기");
 
         // HTML 형식으로 메일 내용 작성
-        String htmlContent = "<img src='cid:logo' width='100' height='100'>" + "<h1>아이디 찾기 안내</h1><p>회원님의 아이디는 <strong>" + memberDto.getMemberId() + "</strong> 입니다.</p>";
+        String htmlContent = "<img src='cid:logo' width='200' height='100'>" + "<h1>[아이디 찾기 안내]</h1><p>회원님의 아이디는 <strong>" + memberDto.getMemberId() + "</strong> 입니다.</p>";
         helper.setText(htmlContent, true);
 
         helper.addInline("logo", new ClassPathResource(logoPath));
@@ -46,7 +46,7 @@ public class EmailService {
         helper.setSubject("[ReHousing] 비밀번호 찾기");
 
         // HTML 형식으로 메일 내용 작성
-        String htmlContent = "<img src='cid:logo'>" + "<h1>비밀번호 찾기 안내</h1><p>회원님의 비밀번호는 <strong>" + memberDto.getMemberPw() + "</strong> 입니다.</p>";
+        String htmlContent = "<img src='cid:logo' width='200' height='100'>" + "<h1>[비밀번호 찾기 안내]</h1><p>회원님의 비밀번호는 <strong>" + memberDto.getMemberPw() + "</strong> 입니다.</p>";
         helper.setText(htmlContent, true);
 
         helper.addInline("logo", new ClassPathResource(logoPath));

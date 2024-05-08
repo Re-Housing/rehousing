@@ -157,11 +157,23 @@
                     alert("비밀번호를 입력해주세요");
                     return;
                 }
+
+                // 중복 체크가 이루어지지 않았을 때 경고 메시지를 표시하고 회원가입을 중단합니다.
+                if ($('#idValidityMessage').text() !== '사용 가능한 아이디입니다.') {
+                    alert('아이디 중복 체크를 해주세요.');
+                    return;
+                }
+
                 this.send();
             })
 
             $('#idValidBtn').click(() => {
                 let memberId = $('#id').val();
+
+                if (memberId == null || memberId == '') {
+                    alert("아이디를 입력해주세요.");
+                    return;
+                }
 
                 $.ajax({
                     url: '<c:url value="/checkidvalid"/>',
@@ -238,5 +250,6 @@
                     이용해보세요.
                 </p>
             </div>
+        </div>
     </div>
 </div>

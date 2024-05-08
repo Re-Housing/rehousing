@@ -56,5 +56,4 @@ public class ReservationService implements RehousingService<Integer, Reservation
     public List<ReservationDto> getReservationRange(Integer no) throws Exception{
         return reservationRepository.selectReservationRange(no);
     }
-
 }

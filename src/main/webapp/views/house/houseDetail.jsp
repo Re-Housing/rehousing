@@ -121,7 +121,7 @@
             this.mapdisplay();
             //this.displayHouseDetail();
             $('#reserve-btn').click(()=>{
-                if(${memberId})
+                <%--if(${memberDto.memberId})--%>
             })
         },
 

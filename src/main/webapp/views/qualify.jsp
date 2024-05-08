@@ -13,7 +13,6 @@
         height: calc(100% - 175px);
         max-height: 100vh;
         padding: 50px 15%;
-        /*background: #F4F4F4;*/
     }
 
     .container {
@@ -190,6 +189,7 @@
 
             if (ageValid && marriageValid && incomeValid && movingValid) {
                 alert('조건을 충족합니다!');
+                window.location.href = '<c:url value="/qualifyimpl"/>'
             }
         });
 

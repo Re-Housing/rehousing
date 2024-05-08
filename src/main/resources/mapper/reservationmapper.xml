@@ -18,7 +18,7 @@
         from reservation r left join house_pic h on r.house_idx=h.house_id
                            left join house ho on ho.house_idx = r.house_idx where member_id=#{memberId}
         order by res_id desc
-            limit ${page},2
+        limit ${page},2
     </select>
     <update id="updateResStatus" parameterType="Integer">
         update reservation

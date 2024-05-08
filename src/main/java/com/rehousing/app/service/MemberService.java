@@ -4,9 +4,7 @@ import com.rehousing.app.data.dto.MemberDto;
 import com.rehousing.app.frame.RehousingService;
 import com.rehousing.app.repository.MemberRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -49,5 +47,8 @@ public class MemberService implements RehousingService<String, MemberDto> {
 
     public MemberDto checkIdValid(MemberDto memberDto) throws Exception {
         return memberRepository.checkIdValid(memberDto);
+    }
+    public void modifyMemberConfirm(MemberDto memberDto) throws Exception {
+        memberRepository.modifyMemberConfirm(memberDto);
     }
 }
