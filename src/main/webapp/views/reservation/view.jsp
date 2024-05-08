@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
 <script>
@@ -32,9 +33,10 @@
            },
             success: function(res) {
                 console.log(res);
+                let realprice = res.totalprice.toLocaleString('ko-KR')+'원';
                 $('#reserve_paymentkind').text(res.kind);
                 $('#reserve_phone').text(res.phone);
-                $('#reserve_totalprice').text(res.totalprice);
+                $('#reserve_totalprice').text(realprice);
                 $('#reserveName').text(res.resName);
                 let startdate = new Date(res.startdate);
                 let enddate = new Date(res.enddate);
@@ -47,7 +49,7 @@
                 let imgsrc = `<img id="img_box_style" src="`;
                 imgsrc += res.url;
                 imgsrc += `"/>`;
-                $('#reserve_img').append(imgsrc);
+                $('#reserve_img').html(imgsrc);
 
             },
             error: function (error) {
@@ -95,7 +97,7 @@
                                 </div>
                                 <div id="reserve_detail_inner4">
                                     <h3>${rList.address}</h3>
-                                    <h3>${rList.totalprice}</h3>
+                                    <h3><fmt:formatNumber type="number" pattern="###,###원" value="${rList.totalprice}"/></h3>
                                 </div>
                                     <c:if test="${rList.resStatus=='예약완료'}">
                                         <div>

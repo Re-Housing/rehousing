@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%--calender--%>
 <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
@@ -247,13 +248,15 @@
                     <div>
                         <h3>요금 세부정보</h3>
                         <div class="reserve_detail">
-                            <span>${house.price}원 (7일 기준)</span>*<span id="showrange"></span> &nbsp; <span id="total1"></span>
+                            <span><fmt:formatNumber type="number" pattern="###,###원" value="${house.price}"/> (7일 기준)</span>*<span id="showrange"></span>
+                            <span id="total1"></span>
                         </div>
                     </div>
                     <hr>
                     <div class="reserve_detail">
                         <h3>총 합계</h3>
                         <span id="total2"></span>
+                        <input type="hidden" id="realtotal"/>
                     </div>
                 </div>
             </div>
@@ -383,7 +386,7 @@
                 pg : 'kakaopay',
                 merchant_uid: "IMP"+makeMerchantUid,
                 name : $('#address').text(),
-                amount : $('#total2').text(),
+                amount :  $('#realtotal').val(),
                 buyer_email : $('#email1').val()+'@'+$('#email2').val(),
                 buyer_name : $('#name').val(),
                 buyer_tel : $('#phone1').val()+'-'+$('#phone2').val()+'-'+$('#phone3').val(),
@@ -444,7 +447,7 @@
                 pay_method:"card",
                 merchant_uid: "IMP"+makeMerchantUid,
                 name : $('#address').text(),
-                amount : $('#total2').text(),
+                amount :  $('#realtotal').val(),
                 buyer_email : $('#email1').val()+'@'+$('#email2').val(),
                 buyer_name : $('#name').val(),
                 buyer_tel : $('#phone1').val()+'-'+$('#phone2').val()+'-'+$('#phone3').val(),
@@ -528,8 +531,10 @@
             diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
             $('#showrange').text(diff+'박');
             let total = 10000 * Math.ceil(diff/7);
-            $('#total1').text(total+'원');
-            $('#total2').text(total+'원');
+            $('#realtotal').val(total);
+            let tmptotal = total.toLocaleString('ko-KR')+'원';
+            $('#total1').text(tmptotal);
+            $('#total2').text(tmptotal);
             $('#startdate').val(oldDate);
             $('#enddate').val(newDate);
         });
