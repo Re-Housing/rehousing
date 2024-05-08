@@ -14,21 +14,33 @@
 <%--/kakaopay--%>
     <style>
         .reservebox {
-            box-sizing: border-box;
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            left: 10%;
-            top: 89px;
+            /*box-sizing: border-box;*/
+            /*position: absolute;*/
+            /*width: 80%;*/
+            /*height: 80%;*/
+            /*left: 10%;*/
+            /*top: 89px;*/
+            /*background: #FFFFFF;*/
+            /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
+            /*border-radius: 60px;*/
+            /*padding-left: 50px;*/
+            /*padding-right: 50px;*/
+
+            height: 100%;
+            padding: 0 5%;
+            border-radius: 60px;
             background: #FFFFFF;
             box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            border-radius: 60px;
-            padding-left: 50px;
-            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .totalbox {
-            padding-left: 30px;
-            padding-right: 30px;
+            /*padding-left: 30px;*/
+            /*padding-right: 30px;*/
+            height: calc(100% - 175px);
+            max-height: 100vh;
+            padding: 50px 15%;
         }
         input{
             border-radius: 8px;
@@ -84,7 +96,7 @@
             border: none;
             background: #FFFFFF;
             box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            height: fit-content;
+            height: 80%;
             border-radius: 20px;
             padding: 30px;
         }
@@ -415,7 +427,7 @@
             })
         },
         banktransfer: function(){
-            alert("무통장입금");
+            $('.payment_kind_box').html('<h2>국민은행 224602-04-225601 김주혜</h2>');
         },
         creditcard: function (){
             let IMP = window.IMP;
@@ -432,7 +444,7 @@
                 pay_method:"card",
                 merchant_uid: "IMP"+makeMerchantUid,
                 name : $('#address').text(),
-                amount : 100,
+                amount : $('#total2').text(),
                 buyer_email : $('#email1').val()+'@'+$('#email2').val(),
                 buyer_name : $('#name').val(),
                 buyer_tel : $('#phone1').val()+'-'+$('#phone2').val()+'-'+$('#phone3').val(),
@@ -445,7 +457,7 @@
                     $('#inner_payment').css('display', 'none');
                     reserve.paysuccess(rsp,1);
                 } else {
-                    alert("실패");
+                    alert("결제에 실패했습니다. 다시 시도해주세요");
                     console.log(rsp);
                 }
             });
@@ -490,7 +502,6 @@
             dateFormat: 'yyyy-mm-dd',
             startDate: moment(now).add(1, 'days'),
             endDate: moment(now).add(2, 'days'),
-            datesDisabled: ["2024-05-18"],
             locale: {
                 format: 'YYYY-MM-DD',
                 daysOfWeek:["일","월","화","수","목","금","토"],
@@ -501,9 +512,6 @@
             minDate: today,
             maxDate: "2024-08-09",
             isInvalidDate: function(date) {
-                // datesDisabled에 있는 날짜들을 비활성화합니다.
-                // var disabledDates = ["2024-05-18", "2024-05-29"];
-                // return disabledDates.includes(date.format('YYYY-MM-DD'));
                 for (let i = 0; i < disabledDateRanges.length; i++) {
                     let range = disabledDateRanges[i];
                     if (date.isBetween(range.startdate, range.enddate, null, '[]')) {

@@ -75,7 +75,7 @@
 <div class="totalbox">
     <div class="reservebox">
         <div>
-            <h1>예약 조회</h1>
+            <h1 style="text-align: center;">예약 조회</h1>
         </div>
         <div>
             <div class="reservebox3">
@@ -98,7 +98,7 @@
                                     <h3>${rList.totalprice}</h3>
                                 </div>
                                     <c:if test="${rList.resStatus=='예약완료'}">
-                                        <div class="inner_margin">
+                                        <div>
                                             <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
                                             <c:if test="${rList.startdate.after(today)}">
                                                 <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
@@ -106,7 +106,7 @@
                                         </div>
                                     </c:if>
                                     <c:if test="${rList.resStatus=='예약취소'}">
-                                        <div class="inner_margin">
+                                        <div>
                                             <h4>취소된 예약</h4>
                                         </div>
                                     </c:if>
@@ -179,21 +179,32 @@
 
 <style>
     .reservebox {
-        box-sizing: border-box;
-        position: absolute;
-        width: 80%;
-        height: 80%;
-        left: 10%;
-        top: 89px;
+        /*box-sizing: border-box;*/
+        /*position: absolute;*/
+        /*width: 80%;*/
+        /*height: 80%;*/
+        /*left: 10%;*/
+        /*top: 89px;*/
+        /*background: #FFFFFF;*/
+        /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
+        /*border-radius: 60px;*/
+        /*padding-left: 50px;*/
+        /*padding-right: 50px;*/
+        height: 100%;
+        padding: 0 5%;
+        border-radius: 60px;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-        border-radius: 60px;
-        padding-left: 50px;
-        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        /*align-items: center;*/
     }
     .totalbox {
-        padding-left: 30px;
-        padding-right: 30px;
+        /*padding-left: 30px;*/
+        /*padding-right: 30px;*/
+        height: calc(100% - 175px);
+        max-height: 100vh;
+        padding: 50px 15%;
     }
     .reservebox3 {
         padding: 15px;
@@ -272,7 +283,7 @@
     }
     #reserve_detail_inner4{
         margin-left: 20px;
-        width:55%;
+        width:50%;
     }
     .inner_margin{
         margin-left:20px;
