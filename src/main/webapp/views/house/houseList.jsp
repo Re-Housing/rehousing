@@ -105,7 +105,7 @@
     <%--            <h1 class="title titletext">빈 집 조회</h1>--%>
                     <c:forEach var="house" items="${houses}">
                         <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
-                            <img src='${house.url}' alt='빈집 이미지'>
+                            <img src='${house.url}' alt='사진 없음'>
     <%--                        <p>Image URL: ${house.url}</p>--%>
                             <p>${house.houseType}</p>
                             <p>${house.price} 원</p>
