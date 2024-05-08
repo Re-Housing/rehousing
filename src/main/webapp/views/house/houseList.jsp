@@ -138,6 +138,7 @@
                         <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
                             <img class="heart-icon" src="<c:url value="/img/likes.png"/>" onclick="houseList.toggleLike(this);" alt="좋아요 아이콘"/>
                             <img src='${house.url}' alt='사진 없음'>
+
                             <p>${house.housetype}</p>
                             <p>${house.price} 원</p>
                             <p>${house.address}</p>

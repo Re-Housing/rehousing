@@ -15,18 +15,6 @@
 <%--/kakaopay--%>
 <style>
     .reservebox {
-        /*box-sizing: border-box;*/
-        /*position: absolute;*/
-        /*width: 80%;*/
-        /*height: 80%;*/
-        /*left: 10%;*/
-        /*top: 89px;*/
-        /*background: #FFFFFF;*/
-        /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
-        /*border-radius: 60px;*/
-        /*padding-left: 50px;*/
-        /*padding-right: 50px;*/
-
         height: 100%;
         padding: 0 5%;
         border-radius: 60px;
@@ -37,8 +25,7 @@
         align-items: center;
     }
     .totalbox {
-        /*padding-left: 30px;*/
-        /*padding-right: 30px;*/
+        position: absolute;
         height: calc(100% - 175px);
         max-height: 100vh;
         padding: 50px 15%;
@@ -133,7 +120,7 @@
         position: relative;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 85%;
         z-index: 1;
     }
     #inner_payment{
@@ -405,14 +392,13 @@
         },
         paysuccess: function (rsp, num){
             console.log(rsp);
-            let userId = '${memberId}';
             $.ajax({
                 url:'<c:url value="/reserve/success"/>',
                 data:{
                     email: rsp.buyer_email,
                     phone: rsp.buyer_tel,
                     totalprice: rsp.paid_amount,
-                    memberId: userId,
+                    memberId: '${memberId}',
                     startdate: $('#startdate').val(),
                     enddate: $('#enddate').val(),
                     houseIdx: ${house.houseIdx},

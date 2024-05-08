@@ -132,8 +132,23 @@
         init: function() {
             this.mapdisplay();
             //this.displayHouseDetail();
+
+            // 주혜 : 예약화면으로 이동 (로그인 확인, 지원자격여부 확인)
             $('#reserve-btn').click(()=>{
-                <%--if(${memberDto.memberId})--%>
+                let memberId = "${memberDto.memberId}";
+                let memberQualify = "${memberDto.memberConfirm}";
+                alert(memberQualify);
+                if(!memberId){
+                    alert('로그인 해주세요');
+                    window.location.href='<c:url value="/login"/>';
+                    return;
+                }
+                if(memberQualify=='false'){
+                    alert('지원자격 조회를 완료해주세요');
+                    window.location.href='<c:url value="/qualify"/>';
+                    return;
+                }
+                window.location.href='<c:url value="/reserve/"/>'+${house.houseIdx};
             })
         },
 
@@ -180,8 +195,6 @@
 
             </div>
             <div id="houseListContainer">
-
-
                 <p>용도: <c:out value="${house.housetype}"/></p>
                 <p>7일에 <c:out value="${house.price}"/> 원</p>
 
