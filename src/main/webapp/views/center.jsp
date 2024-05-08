@@ -9,12 +9,108 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+    $(function () {
+        var cityNamesEng = [
+            "seoul",
+            "busan",
+            "daegu",
+            "incheon",
+            "gwangju",
+            "ulsan",
+            "sejong",
+            "gyeonggi",
+            "gangwon",
+            "chungbuk",
+            "chungnam",
+            "jeonbuk",
+            "jeonnam",
+            "gyeongbuk",
+            "gyeongnam",
+            "jeju",
+            "",
+            "",
+            ""
+        ];
+
+        var cityNamesKor = [
+            "서울특별시",
+            "부산광역시",
+            "대구광역시",
+            "인천광역시",
+            "광주광역시",
+            "울산광역시",
+            "세종특별자치도",
+            "경기도",
+            "강원특별자치도",
+            "충청북도",
+            "충청남도",
+            "전북특별자치도",
+            "전라남도",
+            "경상북도",
+            "경상남도",
+            "제주특별자치도"
+        ];
+
+        var swiperSlide = document.querySelector('.swiper-wrapper');
+        if (!swiperSlide) {
+            console.error("Swiper slide not found!");
+        } else {
+            var startIndex = 0;
+
+            function loadCities(startIndex) {
+                swiperSlide.innerHTML = '';
+                for (var i = startIndex; i < startIndex + 6 && i < cityNamesEng.length; i++) {
+                    var cityNameEng = cityNamesEng[i];
+                    var imgSrc = "/img/city/" + cityNameEng + "Icon.png";
+
+                    var cityContainer = document.createElement('div');
+                    cityContainer.className = 'cityContainer';
+
+                    var img = document.createElement('img');
+                    img.src = imgSrc;
+
+                    // 클릭 이벤트 핸들러 설정
+                    img.onclick = function(cityNameEng, cityNameKor) {
+                        return function() {
+                            window.location.href = '<c:url value="/house/region?cityName=' + cityNameKor + '"/>';
+                        };
+                    }(cityNameEng, cityNamesKor[i]);
+
+                    // cityNamesKor 추가
+                    var cityNameKor = cityNamesKor[i];
+                    var cityNameElement = document.createElement('p');
+                    cityNameElement.className = 'cityName';
+                    cityNameElement.textContent = cityNameKor;
+
+                    cityContainer.appendChild(img);
+
+                    var cityDiv = document.createElement('div');
+                    cityDiv.className = 'cityDiv';
+                    cityDiv.appendChild(cityContainer);
+                    cityDiv.appendChild(cityNameElement)
+                    swiperSlide.appendChild(cityDiv);
+                }
+            }
+
+            loadCities(startIndex);
+
+            // Previous 버튼 클릭 시 이벤트 핸들러
+            $('.swiper-button-prev').click(function() {
+                if (startIndex >= 6) {
+                    startIndex -= 6;
+                    loadCities(startIndex);
+                }
+            });
+
+            // Next 버튼 클릭 시 이벤트 핸들러
+            $('.swiper-button-next').click(function() {
+                if (startIndex + 6 < cityNamesEng.length) {
+                    startIndex += 6;
+                    loadCities(startIndex);
+                }
+            });
+        }
+    })
 
     $(function (){
         $('#logoutBtn').click(() => {
@@ -91,29 +187,7 @@
     <section id="citySection">
         <div id="cityDiv">
             <div class="swiper-container" id="swiperContainer">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide swiperWrapper">
-                        <div class="cityContainer">
-                            <img src="/img/city/seoulIcon.png"/>
-                        </div>
-                        <div class="cityContainer">
-                            <img src="/img/city/busanIcon.png"/>
-                        </div>
-                        <div class="cityContainer">
-                            <img src="/img/city/daeguIcon.png"/>
-                        </div>
-                        <div class="cityContainer">
-                            <img src="/img/city/incheonIcon.png"/>
-                        </div>
-                        <div class="cityContainer">
-                            <img src="/img/city/gwangjuIcon.png"/>
-                        </div>
-                        <div class="cityContainer">
-                            <img src="/img/city/ulsanIcon.png"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper"></div>
             </div>
         </div>
     </section>
