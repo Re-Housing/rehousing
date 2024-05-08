@@ -1,8 +1,6 @@
 package com.rehousing.app.service;
 
 import com.rehousing.app.data.dto.HouseDto;
-import com.rehousing.app.data.dto.TestDto;
-import com.rehousing.app.frame.RehousingRepository;
 import com.rehousing.app.frame.RehousingService;
 import com.rehousing.app.repository.HouseRepository;
 import lombok.RequiredArgsConstructor;

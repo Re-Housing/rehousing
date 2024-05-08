@@ -34,11 +34,12 @@ public class HouseController {
 
             log.info("Accessing house list view with photos");
             model.addAttribute("houses", houses);
+            model.addAttribute("center", dir+"houseList");
         } catch (Exception e) {
             log.error("Error retrieving houses", e);
             throw new RuntimeException("Error retrieving houses", e);
         }
-        return dir + "houseList";
+        return "index";
     }
 
     @RequestMapping("/region")

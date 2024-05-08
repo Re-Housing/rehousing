@@ -120,6 +120,9 @@
         init: function() {
             this.mapdisplay();
             //this.displayHouseDetail();
+            $('#reserve-btn').click(()=>{
+                if(${memberId})
+            })
         },
 
         mapdisplay: function() {
@@ -170,7 +173,7 @@
 
 
                 <img src='<c:out value="${house.url}"/>' alt='빈집 이미지' class="house-image">
-                <button type="button" class="btn btn-primary reserve-btn">예약하기</button>
+                <button type="button" id="reserve-btn" class="btn btn-primary reserve-btn">예약하기</button>
             </div>
         </div>
     </div>
