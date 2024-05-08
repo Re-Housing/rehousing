@@ -107,7 +107,7 @@
                         <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
                             <img src='${house.url}' alt='사진 없음'>
     <%--                        <p>Image URL: ${house.url}</p>--%>
-                            <p>${house.houseType}</p>
+                            <p>${house.housetype}</p>
                             <p>${house.price} 원</p>
                             <p>${house.address}</p>
 

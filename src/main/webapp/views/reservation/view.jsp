@@ -73,8 +73,8 @@
         view.init();
     });
 </script>
-
-<div class="totalbox">
+<div class="toolbox">
+    <div class="totalbox">
     <div class="reservebox">
         <div>
             <h1 style="text-align: center;">예약 조회</h1>
@@ -128,19 +128,18 @@
         </div>
     </div>
 </div>
-
+</div>
 
 <div id="reservation_detail_box">
     <div id="inner_detail_box">
         <div id="inner_detail_box1">
-            <div class="inner_detail_box2">
+            <div class="inner_detail_box2 divbottom">
                 <h3>예약내역 상세</h3>
                 <div>
                     <button id="btn_cancle" type="button"><h3>닫기</h3></button>
                 </div>
             </div>
-            <hr>
-            <div>
+            <div class="divbottom">
                 <h4>상품 및 이용정보</h4>
                 <div id="detail_info">
                     <div id="reserve_img">
@@ -151,9 +150,9 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div>
+            <div class="divbottom">
                 <h4>예약자 정보</h4>
+                <div>
                 <div class="reserve_information">
                     <h5>예약자 이름</h5>
                     <h5 id="reserveName">예약자 이름</h5>
@@ -162,8 +161,8 @@
                     <h5>핸드폰 번호</h5>
                     <h5 id="reserve_phone">핸드폰 번호</h5>
                 </div>
+                </div>
             </div>
-            <hr>
             <div>
                 <h4>결제 금액</h4>
                 <div class="reserve_information">
@@ -180,18 +179,15 @@
 </div>
 
 <style>
+    .toolbox{
+        position: absolute;
+        width: 100%;
+    }
+    .divbottom{
+        border-bottom: 1px solid #9a9a9a;
+        padding-bottom: 20px;
+    }
     .reservebox {
-        /*box-sizing: border-box;*/
-        /*position: absolute;*/
-        /*width: 80%;*/
-        /*height: 80%;*/
-        /*left: 10%;*/
-        /*top: 89px;*/
-        /*background: #FFFFFF;*/
-        /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
-        /*border-radius: 60px;*/
-        /*padding-left: 50px;*/
-        /*padding-right: 50px;*/
         height: 100%;
         padding: 0 5%;
         border-radius: 60px;
@@ -199,17 +195,13 @@
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
-        /*align-items: center;*/
     }
     .totalbox {
-        /*padding-left: 30px;*/
-        /*padding-right: 30px;*/
         height: calc(100% - 175px);
         max-height: 100vh;
         padding: 50px 15%;
     }
     .reservebox3 {
-        padding: 15px;
         justify-content: space-between;
     }
     .reserve_detail {
@@ -223,7 +215,7 @@
         position: relative;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 85%;
         z-index: 1;
     }
     #inner_detail_box{
@@ -232,7 +224,7 @@
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
         border-radius: 30px;
         width: 400px;
-        height: 600px;
+        height: 650px;
         backdrop-filter: blur(5px);
         display: none;
     }
@@ -252,6 +244,16 @@
     #paging{
         display:flex;
         justify-content: center;
+        margin-bottom: 20px;
+    }
+    #pageBtn:hover {
+        background-color: #CCCCCC;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    #pageBtn:active {
+        background-color: #CCCCCC;
+        color: #FFFFFF;
     }
     #pageBtn{
         width:30px;

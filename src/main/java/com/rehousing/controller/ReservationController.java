@@ -1,6 +1,7 @@
 package com.rehousing.controller;
 
 import com.rehousing.app.data.dto.HouseDto;
+import com.rehousing.app.data.dto.MemberDto;
 import com.rehousing.app.data.dto.PaymentDto;
 import com.rehousing.app.data.dto.ReservationDto;
 import com.rehousing.app.service.PaymentService;
@@ -38,6 +39,7 @@ import java.util.List;
  * 예약완료 controller 세션값 변경 May 7. 2024
  * 예약화면 controller 날짜 format 변경 May 7. 2024
  * 예약조회 controller 예약 불가능 날짜 list 추가 May 7. 2024
+ * merge 후 변수 명 및 세부사항 수정 May 8. 2024
  *********************************/
 @Controller
 @RequiredArgsConstructor
@@ -54,9 +56,11 @@ public class ReservationController {
     //예약화면으로 이동
     @RequestMapping("/reserve/{no}")
     public String reserve(@PathVariable("no") String no, Model model, HttpSession session) throws Exception {
-        // model.addAttribute("userId",String.valueOf(session.getAttribute("memberId")));
+        MemberDto dto = (MemberDto) session.getAttribute("memberDto");
+        String memberId = dto.getMemberId();
         HouseDto houseDetail = reservationService.getHouseDetail(Integer.valueOf(no));
         model.addAttribute("house", houseDetail);
+        model.addAttribute("memberId", memberId);
         model.addAttribute("center", "reservation/reserve");
         return "index";
     }
@@ -75,7 +79,8 @@ public class ReservationController {
     //예약내역 확인
     @RequestMapping("/reserve/view")
     public String reserve(Model model, HttpSession session, @RequestParam(value="page",defaultValue="1") Integer page) throws Exception {
-        String memberId =String.valueOf(session.getAttribute("memberId"));
+        MemberDto dto = (MemberDto) session.getAttribute("memberDto");
+        String memberId = dto.getMemberId();
         int paging = (page-1)*2;
         List<ReservationDto> reservationList= reservationService.getReservation(memberId, String.valueOf(paging));
         Date now = new Date(System.currentTimeMillis());

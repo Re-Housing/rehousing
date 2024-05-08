@@ -15,7 +15,7 @@ public class HouseDto {
     private int houseIdx;
     private BigDecimal latitude;
     private BigDecimal longitude;
-    private String houseType;
+    private String housetype;
     private String address;
     private long price;
     private String cityName;
