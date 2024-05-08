@@ -12,4 +12,5 @@ public interface MemberRepository extends RehousingRepository<String, MemberDto>
     MemberDto findPw(MemberDto memberDto) throws Exception;
     MemberDto checkIdValid(MemberDto memberDto) throws Exception;
     void modifyMemberConfirm(MemberDto memberDto) throws Exception;
+
 }

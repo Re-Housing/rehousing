@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rehousing.app.repository.HouseRepository">
+
+    <select id="select" resultType="houseDto">
+        select *
+        from house h left join house_pic hp on h.house_idx = hp.house_id
+        order by h.house_idx
+    </select>
+<!--    <select id="selectOne" parameterType="String" resultType="houseDto">-->
+<!--        SELECT * FROM house WHERE city_name=#{cityName}-->
+<!--    </select>-->
+    <select id="selectByCity" parameterType="String" resultType="houseDto">
+        SELECT * FROM house WHERE city_name=#{cityName}
+    </select>
+    <select id="selectByIdx" parameterType="Integer" resultType="houseDto">
+        SELECT *
+        FROM house h left join house_pic hp
+        on h.house_idx = hp.house_id
+        WHERE house_idx=#{houseIdx}
+
+    </select>
+</mapper>

@@ -4,8 +4,6 @@ import com.rehousing.app.data.dto.MemberDto;
 import com.rehousing.app.service.KakaoLoginService;
 import com.rehousing.app.service.MemberService;
 import jakarta.servlet.http.HttpSession;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 
 /*********************************
  * @function : Main Controller

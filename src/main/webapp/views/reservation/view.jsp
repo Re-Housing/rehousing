@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
 <script>
@@ -26,15 +27,16 @@
     }
     function reserveDetail(resNo){
         $.ajax({
-           url:'/reserve/detail',
-           data:{
-               resId:resNo
-           },
+            url:'/reserve/detail',
+            data:{
+                resId:resNo
+            },
             success: function(res) {
                 console.log(res);
+                let realprice = res.totalprice.toLocaleString('ko-KR')+'원';
                 $('#reserve_paymentkind').text(res.kind);
                 $('#reserve_phone').text(res.phone);
-                $('#reserve_totalprice').text(res.totalprice);
+                $('#reserve_totalprice').text(realprice);
                 $('#reserveName').text(res.resName);
                 let startdate = new Date(res.startdate);
                 let enddate = new Date(res.enddate);
@@ -47,7 +49,7 @@
                 let imgsrc = `<img id="img_box_style" src="`;
                 imgsrc += res.url;
                 imgsrc += `"/>`;
-                $('#reserve_img').append(imgsrc);
+                $('#reserve_img').html(imgsrc);
 
             },
             error: function (error) {
@@ -75,7 +77,7 @@
 <div class="totalbox">
     <div class="reservebox">
         <div>
-            <h1>예약 조회</h1>
+            <h1 style="text-align: center;">예약 조회</h1>
         </div>
         <div>
             <div class="reservebox3">
@@ -95,21 +97,21 @@
                                 </div>
                                 <div id="reserve_detail_inner4">
                                     <h3>${rList.address}</h3>
-                                    <h3>${rList.totalprice}</h3>
+                                    <h3><fmt:formatNumber type="number" pattern="###,###원" value="${rList.totalprice}"/></h3>
                                 </div>
-                                    <c:if test="${rList.resStatus=='예약완료'}">
-                                        <div class="inner_margin">
-                                            <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
-                                            <c:if test="${rList.startdate.after(today)}">
-                                                <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
-                                            </c:if>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${rList.resStatus=='예약취소'}">
-                                        <div class="inner_margin">
-                                            <h4>취소된 예약</h4>
-                                        </div>
-                                    </c:if>
+                                <c:if test="${rList.resStatus=='예약완료'}">
+                                    <div>
+                                        <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
+                                        <c:if test="${rList.startdate.after(today)}">
+                                            <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
+                                        </c:if>
+                                    </div>
+                                </c:if>
+                                <c:if test="${rList.resStatus=='예약취소'}">
+                                    <div>
+                                        <h4>취소된 예약</h4>
+                                    </div>
+                                </c:if>
                             </div>
                         </c:forEach>
                     </c:when>
@@ -119,7 +121,7 @@
                 </c:choose>
             </div>
             <div id="paging">
-                <c:forEach begin="1" end="${count/2}" var="index">
+                <c:forEach begin="1" end="${count}" var="index">
                     <button id="pageBtn" onclick="location.href='/reserve/view?page=${index}'" type="button">${index}</button>
                 </c:forEach>
             </div>
@@ -145,7 +147,7 @@
                     </div>
                     <div>
                         <h4>날짜</h4>
-                        <h4 id="reserve_date">05월 05일 ~ 05월 08일</h4>
+                        <h4 id="reserve_date"></h4>
                     </div>
                 </div>
             </div>
@@ -179,21 +181,32 @@
 
 <style>
     .reservebox {
-        box-sizing: border-box;
-        position: absolute;
-        width: 80%;
-        height: 80%;
-        left: 10%;
-        top: 89px;
+        /*box-sizing: border-box;*/
+        /*position: absolute;*/
+        /*width: 80%;*/
+        /*height: 80%;*/
+        /*left: 10%;*/
+        /*top: 89px;*/
+        /*background: #FFFFFF;*/
+        /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
+        /*border-radius: 60px;*/
+        /*padding-left: 50px;*/
+        /*padding-right: 50px;*/
+        height: 100%;
+        padding: 0 5%;
+        border-radius: 60px;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-        border-radius: 60px;
-        padding-left: 50px;
-        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        /*align-items: center;*/
     }
     .totalbox {
-        padding-left: 30px;
-        padding-right: 30px;
+        /*padding-left: 30px;*/
+        /*padding-right: 30px;*/
+        height: calc(100% - 175px);
+        max-height: 100vh;
+        padding: 50px 15%;
     }
     .reservebox3 {
         padding: 15px;
@@ -267,12 +280,12 @@
         height:130px;
     }
     #reserve_detail_inner3{
-       margin-left: 20px;
+        margin-left: 20px;
         width:10%;
     }
     #reserve_detail_inner4{
         margin-left: 20px;
-        width:55%;
+        width:50%;
     }
     .inner_margin{
         margin-left:20px;

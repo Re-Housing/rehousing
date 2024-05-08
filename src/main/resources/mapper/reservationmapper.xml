@@ -5,8 +5,8 @@
 <mapper namespace="com.rehousing.app.repository.ReservationRepository">
 
     <insert id="insert">
-       insert into reservation
-       values(0, #{phone}, #{startdate}, #{enddate}, now(), #{totalprice}, #{memberId}, #{houseIdx}, '예약완료', #{resName})
+        insert into reservation
+        values(0, #{phone}, #{startdate}, #{enddate}, now(), #{totalprice}, #{memberId}, #{houseIdx}, '예약완료', #{resName})
     </insert>
     <select id="selectHouseDetail" parameterType="Integer" resultType="houseDto">
         select house_idx, housetype, address, price, city_name, url
@@ -35,5 +35,11 @@
     </select>
     <select id="selectTotalCount" parameterType="String" resultType="Integer">
         select count(*) from reservation where member_id = #{memberId}
+    </select>
+    <select id="selectReservationRange" parameterType="Integer" resultType="reservationDto">
+        select startdate, enddate from reservation
+        where house_idx=#{no}
+          and res_status='예약완료'
+        order by startdate
     </select>
 </mapper>
