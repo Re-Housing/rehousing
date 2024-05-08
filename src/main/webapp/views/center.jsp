@@ -26,10 +26,7 @@
             "jeonnam",
             "gyeongbuk",
             "gyeongnam",
-            "jeju",
-            "",
-            "",
-            ""
+            "jeju"
         ];
 
         var cityNamesKor = [
@@ -59,7 +56,8 @@
 
             function loadCities(startIndex) {
                 swiperSlide.innerHTML = '';
-                for (var i = startIndex; i < startIndex + 6 && i < cityNamesEng.length; i++) {
+                var endIndex = Math.min(startIndex + 6, cityNamesEng.length);
+                for (var i = startIndex; i < endIndex; i++) {
                     var cityNameEng = cityNamesEng[i];
                     var imgSrc = "/img/city/" + cityNameEng + "Icon.png";
 
