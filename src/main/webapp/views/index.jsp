@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <html>
 <head>
@@ -204,22 +202,29 @@
     }
 
     #cityDiv {
+        height: 100%;
         padding: 0 15%;
     }
 
-    .swiperWrapper {
+    .cityDiv {
+        width: calc(100% / 7);
+    }
+
+    #swiperContainer {
+        height: 100%;
+    }
+
+    .swiper-wrapper {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        height: 100%;
     }
 
     .cityContainer {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(100% / 7);
         height: 80%;
-        margin-left: 30px;
         border-radius: 20px;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
@@ -231,9 +236,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(100% / 7);
         height: 80%;
-        margin-left: 30px;
         border-radius: 20px;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
@@ -241,12 +244,17 @@
         cursor: pointer;
     }
 
+    .cityName {
+        text-align: center;
+    }
+
     .swiper-button-prev,
     .swiper-button-next {
         position: absolute;
-        top: 87%;
+        top: 83%;
         transform: translateY(-50%);
         z-index: 1;
+        cursor: pointer;
     }
 
     .swiper-button-prev {
