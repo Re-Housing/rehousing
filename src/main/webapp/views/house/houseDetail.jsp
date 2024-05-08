@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
     .bodyDiv {
         height: calc(100% - 175px);
@@ -137,7 +137,6 @@
             $('#reserve-btn').click(()=>{
                 let memberId = "${memberDto.memberId}";
                 let memberQualify = "${memberDto.memberConfirm}";
-                alert(memberQualify);
                 if(!memberId){
                     alert('로그인 해주세요');
                     window.location.href='<c:url value="/login"/>';
@@ -196,7 +195,7 @@
             </div>
             <div id="houseListContainer">
                 <p>용도: <c:out value="${house.housetype}"/></p>
-                <p>7일에 <c:out value="${house.price}"/> 원</p>
+                <p>7일에 <fmt:formatNumber type="number" pattern="###,###원" value="${house.price}"/></p>
 
 
                 <img src='<c:out value="${house.url}"/>' alt='빈집 이미지' class="house-image">

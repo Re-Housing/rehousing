@@ -14,6 +14,10 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <%--/kakaopay--%>
 <style>
+    .borderbox{
+        border-bottom: 1px solid #9a9a9a;
+        padding-bottom: 20px;
+    }
     .reservebox {
         height: 100%;
         padding: 0 5%;
@@ -61,13 +65,13 @@
     }
     #v_line {
         border-left: thin solid #9a9a9a;
-        height: 460px;
+        height: 400px;
     }
     .reservebox2 {
         display: flex;
     }
     .reservebox3 {
-        padding: 30px;
+        padding: 0px 30px 30px 30px;
         width: 50%;
         justify-content: space-between;
     }
@@ -174,6 +178,9 @@
         border: none !important;
         background: #ffffff !important;
     }
+    #address{
+        word-break: keep-all;
+    }
 </style>
 
 <div class="totalbox">
@@ -223,7 +230,7 @@
             <div id="v_line"></div>
             <div class="reserve_info">
                 <div class="reserve_info_box">
-                    <div class="reservebox2">
+                    <div class="reservebox2 borderbox">
                         <div class="img_box"><img src='<c:url value="${house.url}"/>'/>
                         </div>
                         <div>
@@ -231,15 +238,13 @@
                             <h4>${house.housetype}</h4>
                         </div>
                     </div>
-                    <hr>
-                    <div>
+                    <div class="borderbox">
                         <h3>요금 세부정보</h3>
                         <div class="reserve_detail">
                             <span><fmt:formatNumber type="number" pattern="###,###원" value="${house.price}"/> (7일 기준)</span>*<span id="showrange"></span>
                             <span id="total1"></span>
                         </div>
                     </div>
-                    <hr>
                     <div class="reserve_detail">
                         <h3>총 합계</h3>
                         <span id="total2"></span>

@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script>
     let houseList = {
         init: function () {
@@ -140,7 +141,7 @@
                             <img src='${house.url}' alt='사진 없음'>
 
                             <p>${house.housetype}</p>
-                            <p>${house.price} 원</p>
+                            <p><fmt:formatNumber type="number" pattern="###,###원" value="${house.price}"/></p>
                             <p>${house.address}</p>
 
                         </div>

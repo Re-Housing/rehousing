@@ -63,8 +63,9 @@
 <script>
     let view = {
         init: function () {
-            let nowPage = "Btn"+`${page}`;
-            $('.nowPage').css('backgroundColor', '#142231');
+            let nowPage = ".Btn"+`${page}`;
+            $(nowPage).css('backgroundColor', '#142231');
+            $(nowPage).css('color', '#ffffff');
             $('#btn_cancle').click(()=>{
                 $('#reservation_detail_box').css('display', 'none');
                 $('#inner_detail_box').css('display', 'none');
@@ -248,13 +249,7 @@
         margin-bottom: 20px;
     }
     #pageBtn:hover {
-        background-color: #CCCCCC;
-        color: #FFFFFF;
         cursor: pointer;
-    }
-    #pageBtn:active {
-        background-color: #CCCCCC;
-        color: #FFFFFF;
     }
     #pageBtn{
         width:30px;

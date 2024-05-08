@@ -233,7 +233,7 @@
                     </div>
                     <div class="loginInput">
                         <label for="pwd">비밀번호</label><br/>
-                        <input id="pwd" name="memberPw" placeholder="비밀번호를 입력하세요">
+                        <input id="pwd" type="password" name="memberPw" placeholder="비밀번호를 입력하세요">
                     </div>
                     <div class="loginBtnDiv">
                         <button type="button" id="signInBtn" class="loginBtn">회원가입</button>

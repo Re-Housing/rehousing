@@ -125,7 +125,14 @@
         <div id="mainDiv">
             <div id="mainSectionDiv">
                 <div id="likesDiv">
-                    <p>로그인하여 관심 빈집을 추가하세요.</p>
+                    <c:choose>
+                        <c:when test="${memberDto == null}">
+                            <p>로그인하여 관심 빈집을 추가하세요.</p>
+                        </c:when>
+                        <c:otherwise>
+                            <p>관심 빈집을 추가하세요.</p>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div id="myInfoDiv">
                     <c:choose>
@@ -166,7 +173,7 @@
                                     </c:choose>
                                 </div>
                                 <div class="myInfoClass">
-                                    <img src="<c:url value="/img/likes.png"/>"/><span>찜 개수</span><span class="infoContent">0 개</span>
+                                    <img src="<c:url value="/img/like.png"/>"/><span>찜 개수</span><span class="infoContent">0 개</span>
                                 </div>
                                 <div class="myInfoClass">
                                     <img src="<c:url value="/img/reserve.png"/>"/><span>예약 현황</span>
