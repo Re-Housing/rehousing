@@ -4,36 +4,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
     .container {
-        width: 80%;
-        margin: 0 auto; /* 중앙 정렬 */
-        position: relative;
-        top: 50px; /* 페이지 상단으로부터의 거리 */
+        height: calc(100% - 175px);
+        max-height: 100vh;
+        padding: 50px 15%;
     }
 
     .reservebox {
-        display: flex;
-        width: 100%;
-        box-sizing: border-box;
+        height: 100%;
+        padding: 0 5%;
+        border-radius: 60px;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: visible; /* 잘림 방지 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .mapContainer, .houseListContainer {
+    .houseListContainer {
         padding: 20px;
         position: relative;
     }
 
     .mapContainer {
         width: 100%; /* 초기에는 전체 지도 모드 */
+        height: 80%;
         transition: all 0.3s ease; /* 부드럽게 크기 조정 */
     }
 
     #map {
         width: 100%;
-        height: 80vh;
-        border: 1px solid gray;
+        height: 100%;
     }
 
     .houseListContainer {
@@ -43,11 +43,8 @@
     }
 
     .titletext {
-        font-family: 'Inter', sans-serif;
-        font-size: 24px;
         color: #142231;
         text-align: center;
-        margin-bottom: 20px; /* 제목과 내용 사이의 여백 */
     }
 
     .search-container {
@@ -155,8 +152,8 @@
 </script>
 
 <div class="container">
-    <h2 class="titletext">지역별 조회</h2>
     <div class="reservebox">
+        <h1 class="titletext">지역별 조회</h1>
         <div class="mapContainer">
             <div id="map"></div>
         </div>

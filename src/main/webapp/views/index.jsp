@@ -294,7 +294,7 @@
 <header>
     <a href="<c:url value="/"/>"><img id="logo" src="<c:url value="/img/logo.png"/>"/></a>
     <div id="header-links">
-        <a href="#" class="header-link">전체 조회</a>
+        <a href="<c:url value="/house/list"/>" class="header-link">전체 조회</a>
         <a href="#" class="header-link" onclick="checkLogin()">지원자격 확인</a>
         <a href="#" class="header-link">사업 소개</a>
     </div>

@@ -27,8 +27,6 @@
         height: 100%;
     }
 
-
-
     #loginInputDiv input {
         padding: 3%;
         margin-top: 1%;
@@ -38,7 +36,6 @@
         height: 50px;
     }
 
-
     #loginFindDiv div {
         padding: 0;
     }
@@ -47,7 +44,6 @@
         color: #797979;
         text-decoration: none;
     }
-
 
     #hrWrap {
         display: flex;
@@ -102,6 +98,7 @@
     .reserve-btn:hover {
         background-color: #F6C324;
     }
+
     .house-image {
         max-width: 90%;
         max-height: 300px;
@@ -110,14 +107,16 @@
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .heart-icon {
         position: absolute;
-        top: 10px; /* 부모 요소의 위에서부터 10px 아래에 */
-        right: 40px; /* 부모 요소의 오른쪽에서부터 10px 왼쪽에 */
-        width: 30px; /* 고정된 크기 */
+        top: 20px;
+        right: 40px;
+        width: 30px;
         height: 30px;
-        z-index: 10; /* 이미지 위로 올리기 위해 */
+        z-index: 10;
     }
+
     .heart-icon:hover {
         transform: scale(1.2); /* 확대 효과 */
     }
@@ -179,10 +178,9 @@
             });
 
 </script>
-
 <div class="bodyDiv">
     <div class="container">
-        <h2>상세 정보</h2>
+        <h1>상세 정보</h1>
         <img class="heart-icon" src="<c:url value="/img/likes.png"/>"/>
         <div id="reservebox">
             <div id="mapContainer">

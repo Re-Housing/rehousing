@@ -13,7 +13,6 @@
         height: calc(100% - 175px);
         max-height: 100vh;
         padding: 50px 15%;
-        /*background: #F4F4F4;*/
     }
 
     .container {

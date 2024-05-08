@@ -31,8 +31,6 @@ public class HouseController {
         try {
             List<HouseDto> houses = houseService.get();
 
-
-            log.info("Accessing house list view with photos");
             model.addAttribute("houses", houses);
             model.addAttribute("center", dir+"houseList");
         } catch (Exception e) {
@@ -44,10 +42,12 @@ public class HouseController {
 
     @RequestMapping("/region")
     public String region(@RequestParam(value = "cityName", required = false) String cityName, Model model){
-        model.addAttribute("kakaomapkey",kakaomapkey);
+        model.addAttribute("kakaomapkey", kakaomapkey);
         model.addAttribute("cityName", cityName);
-        return dir+"houseRegion";
+        model.addAttribute("center", dir + "houseRegion");
+        return "index";
     }
+
     @RequestMapping("/getHousesByCity")
     @ResponseBody
     public List<HouseDto> getHousesByCity(@RequestParam("cityName") String cityName, Model model) throws Exception {
@@ -62,9 +62,7 @@ public class HouseController {
         HouseDto house = houseService.getByIdx(houseIdx);
         model.addAttribute("kakaomapkey",kakaomapkey);
         model.addAttribute("house", house);
-        return dir + "houseDetail";
-
+        model.addAttribute("center", dir + "houseDetail");
+        return "index";
     }
-
-
 }
