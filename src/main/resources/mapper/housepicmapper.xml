@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rehousing.app.repository.HousepicRepository">
+
+    <select id="select" resultType="housepicDto">
+        SELECT *
+        FROM house_pic
+    </select>
+
+    <select id="findPhotoByHouseId" resultType="string" parameterType="Integer">
+        SELECT url
+        FROM house_pic
+        WHERE house_id = #{houseIdx}
+    </select>
+
+</mapper>
