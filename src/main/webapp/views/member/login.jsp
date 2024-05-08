@@ -137,12 +137,10 @@
         });
 
         $('#kakaoLoginBtn').click(() => {
-            alert("hihi");
-            const url = 'https://kauth.kakao.com/oauth/authorize?client_id=' +
-                        ${KAKAO_JS_API_KEY} +
-                        '&redirect_uri=' +
-                        '<c:url value="/"/>';
-            window.location.href = url;
+            window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=' +
+                "${kakaoRestApiKey}" +
+                '&redirect_uri=' +
+                'http://localhost:80/';
         });
     })
 </script>

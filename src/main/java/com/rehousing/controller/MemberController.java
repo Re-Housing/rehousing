@@ -7,6 +7,7 @@ import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.io.UnsupportedEncodingException;
  * @author : 김민표
  * @Date : April 30. 2024
  * 로그인화면 controller 추가 April 30. 2024
+ * 로그인화면 controller 수정 May 8. 2024
  * 아이디찾기화면 controller 추가 May 1. 2024
  * 비밀번호찾기화면 controller 추가 May 1. 2024
  * 회원가입화면 controller 추가 May 2. 2024
@@ -32,10 +34,14 @@ public class MemberController {
     final MemberService memberService;
     final EmailService emailService;
 
+    @Value("${app.key.KAKAO_REST_API_KEY}")
+    private String kakaoRestApiKey;
+
     // 로그인 화면
     @RequestMapping("/login")
     public String login(Model model) {
         model.addAttribute("center", dir + "login");
+        model.addAttribute("kakaoRestApiKey", kakaoRestApiKey);
         MemberDto memberDto = new MemberDto();
         try {
             emailService.sendIdMail(memberDto);
