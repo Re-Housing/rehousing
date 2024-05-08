@@ -94,7 +94,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide swiperWrapper">
                         <div class="cityContainer">
-                            <img src="/img/city/seoulIcon.png"/>
+                            <img src="/img/city/seoulIcon.png" onclick="window.location.href = `<c:url value='/house/region?cityName=서울'/>`"/>
                         </div>
                         <div class="cityContainer">
                             <img src="/img/city/busanIcon.png"/>
