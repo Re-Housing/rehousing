@@ -45,4 +45,6 @@ app:
      impapisecretkey: ENC(pgPtNx5nmiuJe2avVBG9V8IL777qfyavAP0VIdu9GDfwoFNysR+7ZhsAHoyiUNyOhhRqsTOj+6p6Z+jgL1D6dQGvvSQzHiz2rOVR8mfn4TJZ3jENE53IFrJUWTZE3MYn)
      KAKAO_REST_API_KEY: ENC(tfnLeWp3M6drPs/QXBAm+I1vCrz9SrAs0CaQekPtgDnrZEDroUG7CfZIhtSdyDSi)
      KAKAO_JS_API_KEY: ENC(dF+MmWXbY19BYGxwfVD7R1jh3Cy6O0B0L1kqxNfGHetXLxKLuVDsr6Qb9WqkQrdQ)
+     kakaomapkey: ENC(QujM/0zbtKCecKsDoaaZYrPsQIjhJXZf8gmI0ntaxMWMaaDVAaDpRWOzf2Xp+2aM)
+
 
