@@ -27,10 +27,10 @@
     }
     function reserveDetail(resNo){
         $.ajax({
-           url:'/reserve/detail',
-           data:{
-               resId:resNo
-           },
+            url:'/reserve/detail',
+            data:{
+                resId:resNo
+            },
             success: function(res) {
                 console.log(res);
                 let realprice = res.totalprice.toLocaleString('ko-KR')+'원';
@@ -99,19 +99,19 @@
                                     <h3>${rList.address}</h3>
                                     <h3><fmt:formatNumber type="number" pattern="###,###원" value="${rList.totalprice}"/></h3>
                                 </div>
-                                    <c:if test="${rList.resStatus=='예약완료'}">
-                                        <div>
-                                            <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
-                                            <c:if test="${rList.startdate.after(today)}">
-                                                <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
-                                            </c:if>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${rList.resStatus=='예약취소'}">
-                                        <div>
-                                            <h4>취소된 예약</h4>
-                                        </div>
-                                    </c:if>
+                                <c:if test="${rList.resStatus=='예약완료'}">
+                                    <div>
+                                        <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
+                                        <c:if test="${rList.startdate.after(today)}">
+                                            <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
+                                        </c:if>
+                                    </div>
+                                </c:if>
+                                <c:if test="${rList.resStatus=='예약취소'}">
+                                    <div>
+                                        <h4>취소된 예약</h4>
+                                    </div>
+                                </c:if>
                             </div>
                         </c:forEach>
                     </c:when>
@@ -280,7 +280,7 @@
         height:130px;
     }
     #reserve_detail_inner3{
-       margin-left: 20px;
+        margin-left: 20px;
         width:10%;
     }
     #reserve_detail_inner4{

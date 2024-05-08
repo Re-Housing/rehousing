@@ -5,8 +5,8 @@
 <mapper namespace="com.rehousing.app.repository.ReservationRepository">
 
     <insert id="insert">
-       insert into reservation
-       values(0, #{phone}, #{startdate}, #{enddate}, now(), #{totalprice}, #{memberId}, #{houseIdx}, '예약완료', #{resName})
+        insert into reservation
+        values(0, #{phone}, #{startdate}, #{enddate}, now(), #{totalprice}, #{memberId}, #{houseIdx}, '예약완료', #{resName})
     </insert>
     <select id="selectHouseDetail" parameterType="Integer" resultType="houseDto">
         select house_idx, housetype, address, price, city_name, url
@@ -18,7 +18,7 @@
         from reservation r left join house_pic h on r.house_idx=h.house_id
                            left join house ho on ho.house_idx = r.house_idx where member_id=#{memberId}
         order by res_id desc
-        limit ${page},2
+            limit ${page},2
     </select>
     <update id="updateResStatus" parameterType="Integer">
         update reservation

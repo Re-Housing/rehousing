@@ -13,181 +13,181 @@
 <%--kakaopay--%>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <%--/kakaopay--%>
-    <style>
-        .reservebox {
-            /*box-sizing: border-box;*/
-            /*position: absolute;*/
-            /*width: 80%;*/
-            /*height: 80%;*/
-            /*left: 10%;*/
-            /*top: 89px;*/
-            /*background: #FFFFFF;*/
-            /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
-            /*border-radius: 60px;*/
-            /*padding-left: 50px;*/
-            /*padding-right: 50px;*/
+<style>
+    .reservebox {
+        /*box-sizing: border-box;*/
+        /*position: absolute;*/
+        /*width: 80%;*/
+        /*height: 80%;*/
+        /*left: 10%;*/
+        /*top: 89px;*/
+        /*background: #FFFFFF;*/
+        /*box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);*/
+        /*border-radius: 60px;*/
+        /*padding-left: 50px;*/
+        /*padding-right: 50px;*/
 
-            height: 100%;
-            padding: 0 5%;
-            border-radius: 60px;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .totalbox {
-            /*padding-left: 30px;*/
-            /*padding-right: 30px;*/
-            height: calc(100% - 175px);
-            max-height: 100vh;
-            padding: 50px 15%;
-        }
-        input{
-            border-radius: 8px;
-            border: 1px solid #9a9a9a;
-            height: 40px;
-            text-align: center;
-        }
-        #name {
-            width: 300px;
-        }
-        #phone1,#phone2,#phone3 {
-            width: 100px;
-        }
-        #email1,#email2{
-            width:150px;
-        }
-        #email2{
-            height: 40px;
-            border-radius: 8px;
-        }
-        #btn_payment {
-            border-radius: 20px;
-            width: 90%;
-            height: 12%;
-            background: #142231;
-            color: #ffffff;
-            margin-top:15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        #v_line {
-            border-left: thin solid #9a9a9a;
-            height: 460px;
-        }
-        .reservebox2 {
-            display: flex;
-        }
-        .reservebox3 {
-            padding: 30px;
-            width: 50%;
-            justify-content: space-between;
-        }
-        .reserve_detail {
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-        }
-        .reserve_info {
-            padding: 30px;
-            width: 40%;
-        }
-        .reserve_info_box {
-            border: none;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            height: 80%;
-            border-radius: 20px;
-            padding: 30px;
-        }
-        .img_box {
-            border: none;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            width: 150px;
-            height: 150px;
-            border-radius: 20px;
-            margin-right: 30px;
-        }
-        img{
-            width: 150px;
-            height: 150px;
-        }
-        span{
-            font-size: medium;
-        }
-        hr{
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-        /*화살표버튼 제거*/
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin:0;
-        }
-        #payment{
-            backdrop-filter: blur(5px);
-            display: none;
-            position: relative;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            z-index: 1;
-        }
-        #inner_payment{
-            border: none;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            width: 800px;
-            height: 500px;
-            backdrop-filter: blur(5px);
-            display: none;
-        }
-        .payment_kind{
-            border:1px solid #C6C4C4;
-            width: 100%;
-            height: 130px;
-            text-align: center;
-            align-items: center;
-            padding:5% 10%;
-        }
-        .payment_kind_box{
-            display:flex;
-            margin-top: 60px;
-        }
-        .pay_img{
-            width:80px;
-            height: 80px;
-            border-radius: 20px;
-            margin-bottom: 5%;
-        }
-        .reservebox4{
-            display:flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #btn_cancle{
-            border: none;
-            height: 50px;
-            background: #ffffff;
-        }
-        .payment_kind:hover{
-            background-color: lightgray;
-            transition: all 0.5s;
-        }
-        .reserve_calender{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .cancelBtn, .applyBtn{
-            border: none !important;
-            background: #ffffff !important;
-        }
-    </style>
+        height: 100%;
+        padding: 0 5%;
+        border-radius: 60px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .totalbox {
+        /*padding-left: 30px;*/
+        /*padding-right: 30px;*/
+        height: calc(100% - 175px);
+        max-height: 100vh;
+        padding: 50px 15%;
+    }
+    input{
+        border-radius: 8px;
+        border: 1px solid #9a9a9a;
+        height: 40px;
+        text-align: center;
+    }
+    #name {
+        width: 300px;
+    }
+    #phone1,#phone2,#phone3 {
+        width: 100px;
+    }
+    #email1,#email2{
+        width:150px;
+    }
+    #email2{
+        height: 40px;
+        border-radius: 8px;
+    }
+    #btn_payment {
+        border-radius: 20px;
+        width: 90%;
+        height: 12%;
+        background: #142231;
+        color: #ffffff;
+        margin-top:15px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    #v_line {
+        border-left: thin solid #9a9a9a;
+        height: 460px;
+    }
+    .reservebox2 {
+        display: flex;
+    }
+    .reservebox3 {
+        padding: 30px;
+        width: 50%;
+        justify-content: space-between;
+    }
+    .reserve_detail {
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+    }
+    .reserve_info {
+        padding: 30px;
+        width: 40%;
+    }
+    .reserve_info_box {
+        border: none;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+        height: 80%;
+        border-radius: 20px;
+        padding: 30px;
+    }
+    .img_box {
+        border: none;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+        margin-right: 30px;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    span{
+        font-size: medium;
+    }
+    hr{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    /*화살표버튼 제거*/
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin:0;
+    }
+    #payment{
+        backdrop-filter: blur(5px);
+        display: none;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        z-index: 1;
+    }
+    #inner_payment{
+        border: none;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        width: 800px;
+        height: 500px;
+        backdrop-filter: blur(5px);
+        display: none;
+    }
+    .payment_kind{
+        border:1px solid #C6C4C4;
+        width: 100%;
+        height: 130px;
+        text-align: center;
+        align-items: center;
+        padding:5% 10%;
+    }
+    .payment_kind_box{
+        display:flex;
+        margin-top: 60px;
+    }
+    .pay_img{
+        width:80px;
+        height: 80px;
+        border-radius: 20px;
+        margin-bottom: 5%;
+    }
+    .reservebox4{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #btn_cancle{
+        border: none;
+        height: 50px;
+        background: #ffffff;
+    }
+    .payment_kind:hover{
+        background-color: lightgray;
+        transition: all 0.5s;
+    }
+    .reserve_calender{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .cancelBtn, .applyBtn{
+        border: none !important;
+        background: #ffffff !important;
+    }
+</style>
 
 <div class="totalbox">
     <div class="reservebox">
@@ -196,7 +196,7 @@
         </div>
         <div class="reservebox2">
             <div class="reservebox3">
-                    <h2 class="reserve_detail">예약정보</h2>
+                <h2 class="reserve_detail">예약정보</h2>
                 <hr>
                 <div>
                     <div>
@@ -298,7 +298,7 @@
             $('.payment_kind').click(function(){
                 let what = $(this).attr("value");
                 if(what=='카카오페이'){
-                   reserve.kakaopay();
+                    reserve.kakaopay();
                 }
                 if(what=='무통장입금'){
                     reserve.banktransfer();

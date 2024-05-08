@@ -22,7 +22,7 @@ import java.util.List;
 
 
 /*********************************
- * @function : Reservation Controller 
+ * @function : Reservation Controller
  * @author : 김주혜
  * @Date : May 1. 2024
  * 예약화면 controller 추가 May 1. 2024
@@ -45,7 +45,7 @@ import java.util.List;
 public class ReservationController {
     final ReservationService reservationService;
     final PaymentService paymentService;
-//    private IamportClient iamportClient;
+    //    private IamportClient iamportClient;
 //    @Value("${app.key.impapikey}")
 //    public String apiKey;
 //
@@ -54,7 +54,7 @@ public class ReservationController {
     //예약화면으로 이동
     @RequestMapping("/reserve/{no}")
     public String reserve(@PathVariable("no") String no, Model model, HttpSession session) throws Exception {
-       // model.addAttribute("userId",String.valueOf(session.getAttribute("memberId")));
+        // model.addAttribute("userId",String.valueOf(session.getAttribute("memberId")));
         HouseDto houseDetail = reservationService.getHouseDetail(Integer.valueOf(no));
         model.addAttribute("house", houseDetail);
         model.addAttribute("center", "reservation/reserve");
