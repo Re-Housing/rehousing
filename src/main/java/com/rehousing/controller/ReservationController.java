@@ -90,6 +90,7 @@ public class ReservationController {
         model.addAttribute("today", now);
         model.addAttribute("count",count);
         model.addAttribute("center","reservation/view");
+        model.addAttribute("page",page);
 
         return "index";
     }

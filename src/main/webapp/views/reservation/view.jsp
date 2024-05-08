@@ -63,6 +63,8 @@
 <script>
     let view = {
         init: function () {
+            let nowPage = "Btn"+`${page}`;
+            $('.nowPage').css('backgroundColor', '#142231');
             $('#btn_cancle').click(()=>{
                 $('#reservation_detail_box').css('display', 'none');
                 $('#inner_detail_box').css('display', 'none');
@@ -122,14 +124,13 @@
             </div>
             <div id="paging">
                 <c:forEach begin="1" end="${count}" var="index">
-                    <button id="pageBtn" onclick="location.href='/reserve/view?page=${index}'" type="button">${index}</button>
+                    <button class="Btn${index}" id="pageBtn" onclick="location.href='/reserve/view?page=${index}'" type="button">${index}</button>
                 </c:forEach>
             </div>
         </div>
     </div>
 </div>
 </div>
-
 <div id="reservation_detail_box">
     <div id="inner_detail_box">
         <div id="inner_detail_box1">
