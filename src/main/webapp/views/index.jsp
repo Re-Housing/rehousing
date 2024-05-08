@@ -221,6 +221,7 @@
     }
 
     .cityContainer {
+        padding: 0 10%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -246,6 +247,13 @@
 
     .cityName {
         text-align: center;
+        color: #797979;
+    }
+
+    .cityContainer > img {
+        height: 80px;
+        width: 100%; /* 이미지의 너비를 부모 요소의 너비에 맞게 설정 */
+        object-fit: contain; /* 이미지를 요소에 맞게 조정하되 원본 비율을 유지하도록 설정 */
     }
 
     .swiper-button-prev,
@@ -263,10 +271,6 @@
 
     .swiper-button-next {
         right: 10%;
-    }
-
-    .cityContainer > img {
-        height: 80px;
     }
 
     #rightSectionLogo {
