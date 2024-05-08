@@ -119,7 +119,7 @@
                 data: { cityName: cityName },
                 success: (houses) => {
                     if (houses.length > 0) {
-                        var firstHouse = houses[0];
+                        var firstHouse = houses[1];
                         var moveLatLon = new kakao.maps.LatLng(firstHouse.longitude, firstHouse.latitude);
                         this.map.setCenter(moveLatLon);
                     }

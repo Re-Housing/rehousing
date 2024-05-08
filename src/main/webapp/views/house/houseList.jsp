@@ -80,6 +80,7 @@
         }
 
         .grid-item {
+            position: relative; /* 부모 요소를 상대 위치로 */
             border: 1px solid #ccc;
             box-shadow: 0px 0px 10px #ccc;
             padding: 10px;
@@ -90,7 +91,38 @@
             height: 200px; /* Fixed height for all images */
             object-fit: cover; /* Ensures that images are scaled correctly */
         }
+        .heart-icon {
+            position: absolute;
+            top: 10px; /* 부모 요소의 위에서부터 10px 아래에 */
+            right: 10px; /* 부모 요소의 오른쪽에서부터 10px 왼쪽에 */
+            width: 30px; /* 고정된 크기 */
+            height: 30px;
+            z-index: 10; /* 이미지 위로 올리기 위해 */
+        }
+        .heart-icon:hover {
+            transform: scale(1.2); /* 확대 효과 */
+        }
+        .liked {
+            content: url('<c:url value="/img/liked.png"/>'); /* 찜 상태 아이콘 */
+        }
+        .not-liked {
+            content: url('<c:url value="/img/likes.png"/>'); /* 기본 상태 아이콘 */
+        }
     </style>
+    <script>
+        let houseList = {
+            toggleLike: function (heartIcon) {
+                // 찜 상태 토글
+                heartIcon.classList.toggle('liked');
+                heartIcon.classList.toggle('not-liked');
+            },
+            init: function () {
+            }
+        };
+        $(function () {
+            houseList.init();
+        });
+    </script>
 </head>
 
 <body>
@@ -102,12 +134,11 @@
         <div id="reservebox">
             <h2 style="text-align: center;">빈 집</h2>
             <div class="grid-container">
-    <%--            <h1 class="title titletext">빈 집 조회</h1>--%>
                     <c:forEach var="house" items="${houses}">
                         <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
+                            <img class="heart-icon" src="<c:url value="/img/likes.png"/>" onclick="houseList.toggleLike(this);" alt="좋아요 아이콘"/>
                             <img src='${house.url}' alt='사진 없음'>
-    <%--                        <p>Image URL: ${house.url}</p>--%>
-                            <p>${house.houseType}</p>
+                            <p>${house.housetype}</p>
                             <p>${house.price} 원</p>
                             <p>${house.address}</p>
 

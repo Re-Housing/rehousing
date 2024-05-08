@@ -10,6 +10,7 @@
     }
 
     .container {
+        position: relative;
         height: 100%;
         padding: 0 5%;
         border-radius: 60px;
@@ -109,6 +110,17 @@
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
+    .heart-icon {
+        position: absolute;
+        top: 10px; /* 부모 요소의 위에서부터 10px 아래에 */
+        right: 40px; /* 부모 요소의 오른쪽에서부터 10px 왼쪽에 */
+        width: 30px; /* 고정된 크기 */
+        height: 30px;
+        z-index: 10; /* 이미지 위로 올리기 위해 */
+    }
+    .heart-icon:hover {
+        transform: scale(1.2); /* 확대 효과 */
+    }
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -157,6 +169,7 @@
 <div class="bodyDiv">
     <div class="container">
         <h2>상세 정보</h2>
+        <img class="heart-icon" src="<c:url value="/img/likes.png"/>"/>
         <div id="reservebox">
             <div id="mapContainer">
                 <div id="map"></div>
@@ -168,7 +181,8 @@
             </div>
             <div id="houseListContainer">
 
-                <p>용도: <c:out value="${house.houseType}"/></p>
+
+                <p>용도: <c:out value="${house.housetype}"/></p>
                 <p>7일에 <c:out value="${house.price}"/> 원</p>
 
 
