@@ -15,26 +15,15 @@
     <title>빈 집 목록</title>
 
     <style>
-        .title {
-            /*margin-left: 100px;*/
-            margin-top: 20px;
+        .totalbox {
+            height: calc(100% - 175px);
+            max-height: 100vh;
+            padding: 50px 15%;
         }
 
-        #reservebox {
-            box-sizing: border-box;
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            left: 10%;
-            top: 89px;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
-            border-radius: 60px;
-            overflow-y: auto;
-        }
         .container {
             height: 100%;
-            padding: 0 5%;
+            width: 100%;
             border-radius: 60px;
             background: #FFFFFF;
             box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
@@ -43,18 +32,19 @@
             align-items: center;
         }
 
-        /*#reservebox {*/
-        /*    display: flex;*/
-        /*    width: 100%;*/
-        /*    height: 100%;*/
-        /*}*/
+        .title {
+            margin-top: 20px;
+        }
 
-        .totalbox {
-            display: flex;
-            justify-content: center;
-            /*padding: 20px;*/
-            /*padding-left: 30px;*/
-            /*padding-right: 30px;*/
+        #reservebox {
+            width: 100%;
+            height: 100%;
+            left: 10%;
+            top: 89px;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
+            border-radius: 60px;
+            overflow-y: auto;
         }
 
         .titletext {
@@ -72,6 +62,7 @@
             background-color: snow;
             border-width: 0 0 1px;
         }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -91,22 +82,30 @@
             height: 200px; /* Fixed height for all images */
             object-fit: cover; /* Ensures that images are scaled correctly */
         }
+
         .heart-icon {
             position: absolute;
-            top: 10px; /* 부모 요소의 위에서부터 10px 아래에 */
-            right: 10px; /* 부모 요소의 오른쪽에서부터 10px 왼쪽에 */
+            top: 15px; /* 부모 요소의 위에서부터 10px 아래에 */
+            right: 15px; /* 부모 요소의 오른쪽에서부터 10px 왼쪽에 */
             width: 30px; /* 고정된 크기 */
             height: 30px;
             z-index: 10; /* 이미지 위로 올리기 위해 */
         }
+
         .heart-icon:hover {
             transform: scale(1.2); /* 확대 효과 */
         }
+
         .liked {
             content: url('<c:url value="/img/liked.png"/>'); /* 찜 상태 아이콘 */
         }
+
         .not-liked {
             content: url('<c:url value="/img/likes.png"/>'); /* 기본 상태 아이콘 */
+        }
+
+        ::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge 등의 브라우저에서 사용하는 스크롤바를 숨깁니다. */
         }
     </style>
     <script>
@@ -126,32 +125,23 @@
 </head>
 
 <body>
-
-<div class="totalbox">
-    <div class="container">
-
-
-        <div id="reservebox">
-            <h2 style="text-align: center;">빈 집</h2>
-            <div class="grid-container">
-                    <c:forEach var="house" items="${houses}">
-                        <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
-                            <img class="heart-icon" src="<c:url value="/img/likes.png"/>" onclick="houseList.toggleLike(this);" alt="좋아요 아이콘"/>
-                            <img src='${house.url}' alt='사진 없음'>
-
-                            <p>${house.housetype}</p>
-                            <p>${house.price} 원</p>
-                            <p>${house.address}</p>
-
-                        </div>
-                    </c:forEach>
-
-                </div>
+    <div class="totalbox">
+        <div class="container">
+            <div id="reservebox">
+                <h1 style="text-align: center;">빈 집</h1>
+                <div class="grid-container">
+                        <c:forEach var="house" items="${houses}">
+                            <div class='grid-item' onclick="location.href='/house/getHouseDetail?houseIdx=${house.houseIdx}'">
+                                <img class="heart-icon" src="<c:url value="/img/likes.png"/>" onclick="houseList.toggleLike(this);" alt="좋아요 아이콘"/>
+                                <img src='${house.url}' alt='사진 없음'>
+                                <p>${house.housetype}</p>
+                                <p>${house.price} 원</p>
+                                <p>${house.address}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+            </div>
         </div>
     </div>
-</div>
-
-
-
 </body>
 </html>
