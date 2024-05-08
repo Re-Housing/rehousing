@@ -1,9 +1,7 @@
 package com.rehousing.app.service;
 
-import com.rehousing.app.data.dto.HouseDto;
 import com.rehousing.app.data.dto.HousepicDto;
 import com.rehousing.app.frame.RehousingService;
-import com.rehousing.app.repository.HouseRepository;
 import com.rehousing.app.repository.HousepicRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
