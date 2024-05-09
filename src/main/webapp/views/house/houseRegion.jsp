@@ -36,65 +36,25 @@
         border: 1px solid gray;
     }
 
-    .houseListContainer {
-        width: 0%; /* 초기에는 표시되지 않음 */
-        display: none;
-        overflow-y: auto; /* 내용이 많을 경우 스크롤 */
-    }
+    /*.houseListContainer {*/
+    /*    width: 0%; */
+    /*    display: none;*/
+    /*    overflow-y: auto;*/
+    /*}*/
 
     .titletext {
         font-family: 'Inter', sans-serif;
         font-size: 24px;
         color: #142231;
         text-align: center;
-        margin-bottom: 20px; /* 제목과 내용 사이의 여백 */
+        margin-bottom: 20px;
     }
 
-    .search-container {
-        display: flex;
-        justify-content: center; /* 중앙 정렬 */
-        margin-bottom: 15px; /* 아래 요소와의 간격 */
-    }
 
-    .search-container table {
-        border-spacing: 0;
-        border-collapse: collapse;
-    }
-
-    .search-container select, .search-container input[type="text"] {
-        margin-right: 5px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        border: 1px solid gray;
-    }
-
-    .search-container input[type="image"] {
-        padding: 5px;
-    }
-
-    .reserve-btn {
-        position: absolute; /* 절대 위치 */
-        left: 50%; /* 중앙으로 위치 */
-        bottom: 20px; /* 아래에서 20px 떨어진 곳에 위치 */
-        transform: translateX(-50%); /* 정확히 중앙에 위치시킴 */
-        padding: 10px 20px; /* 내부 여백 */
-        font-size: 16px; /* 글씨 크기 */
-        color: white; /* 글씨 색상 */
-        background-color: #000000;
-        box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1); /* 배경 색상 */
-        border: none; /* 테두리 없음 */
-        border-radius: 60px; /* 모서리 둥글게 */
-        cursor: pointer; /* 마우스 오버 시 커서 변경 */
-        transition: background-color 0.3s; /* 배경 색상 변화 애니메이션 */
-    }
-
-    .reserve-btn:hover {
-        background-color: #F6C324; /* 마우스 오버 시 배경 색상 */
-    }
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaomapkey}"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaomapkey}&libraries=services"></script>
 <script>
     let houseregion = {
         map: null,
@@ -122,25 +82,109 @@
                         var firstHouse = houses[1];
                         var moveLatLon = new kakao.maps.LatLng(firstHouse.longitude, firstHouse.latitude);
                         this.map.setCenter(moveLatLon);
+                        houses.forEach((house) => {
+                            var markerPosition = new kakao.maps.LatLng(house.longitude, house.latitude);
+                            var marker = new kakao.maps.Marker({
+                                position: markerPosition
+                            });
+                            marker.setMap(this.map);
+                            kakao.maps.event.addListener(marker, 'click', () => {
+                                window.location.href = `<c:url value='/house/getHouseDetail?houseIdx='/>`+house.houseIdx;
+                            });
+                        });
+                    }
+                    else {
+                        if(cityName=="서울특별시") {
+                            var moveLatLon = new kakao.maps.LatLng(37.5665, 126.9780);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="부산광역시") {
+                            var moveLatLon = new kakao.maps.LatLng(35.1796, 129.0756);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="대구광역시") {
+                            var moveLatLon = new kakao.maps.LatLng(35.8714, 128.6014);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="인천광역시") {
+                            var moveLatLon = new kakao.maps.LatLng(37.4563, 126.7052);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="광주광역시") {
+                            var moveLatLon = new kakao.maps.LatLng(35.1595, 126.8526);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="울산광역시") {
+                            var moveLatLon = new kakao.maps.LatLng(35.5384, 129.3114);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="세종특별자치도") {
+                            var moveLatLon = new kakao.maps.LatLng(36.4803, 127.2891);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="경기도") {
+                            var moveLatLon = new kakao.maps.LatLng(37.2636, 127.0286);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="강원특별자치도") {
+                            var moveLatLon = new kakao.maps.LatLng(37.8813, 127.7298);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="충청북도") {
+                            var moveLatLon = new kakao.maps.LatLng(36.6439, 127.4880);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="충청남도") {
+                            var moveLatLon = new kakao.maps.LatLng(36.8152, 127.1139);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="전북특별자치도") {
+                            var moveLatLon = new kakao.maps.LatLng(35.8242, 127.1470);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="전라남도") {
+                            var moveLatLon = new kakao.maps.LatLng(34.8135, 126.4631);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="경상북도") {
+                            var moveLatLon = new kakao.maps.LatLng(36.5684, 128.7297);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="경상남도") {
+                            var moveLatLon = new kakao.maps.LatLng(35.2270, 128.6811);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        else if(cityName=="제주특별자치도") {
+                            var moveLatLon = new kakao.maps.LatLng(33.4996, 126.5312);
+                            this.map.setCenter(moveLatLon);
+                        }
+                        setTimeout(function() {
+                            alert("빈집 정보 없음");
+                        }, 500);
                     }
 
-                    houses.forEach((house) => {
-                        var markerPosition = new kakao.maps.LatLng(house.longitude, house.latitude);
-                        var marker = new kakao.maps.Marker({
-                            position: markerPosition
-                        });
-                        marker.setMap(this.map);
-                        kakao.maps.event.addListener(marker, 'click', () => {
-                            window.location.href = `<c:url value='/house/getHouseDetail?houseIdx='/>`+house.houseIdx;
-                        });
-                    });
                 },
+
                 error: function(error) {
                     console.log('Error fetching data:', error);
                 }
             });
         },
 
+        <%--moveToCityCenter: function(cityName) {--%>
+        <%--    if (!this.geocoder) {--%>
+        <%--        console.error('Geocoder is not initialized!');--%>
+        <%--        return;--%>
+        <%--    }--%>
+        <%--    this.geocoder.addressSearch(cityName, (result, status) => {--%>
+        <%--        if (status === kakao.maps.services.Status.OK) {--%>
+        <%--            var centerPosition = new kakao.maps.LatLng(result[0].y, result[0].x);--%>
+        <%--            this.map.setCenter(centerPosition);--%>
+        <%--        } else {--%>
+        <%--            console.log(`Unable to find coordinates for city: ${cityName}`);--%>
+        <%--        }--%>
+        <%--    });--%>
+        <%--},--%>
         loadMapByQuery: function() {
             var cityName = '<c:out value="${cityName}"/>';
             if (cityName) {
@@ -160,8 +204,8 @@
         <div class="mapContainer">
             <div id="map"></div>
         </div>
-        <div class="houseListContainer">
-            <!-- 빈집 리스트 출력 위치 -->
-        </div>
+<%--        <div class="houseListContainer">--%>
+<%--            <!-- 빈집 리스트 출력 위치 -->--%>
+<%--        </div>--%>
     </div>
 </div>

@@ -131,7 +131,6 @@
 
         init: function() {
             this.mapdisplay();
-            //this.displayHouseDetail();
 
             // 주혜 : 예약화면으로 이동 (로그인 확인, 지원자격여부 확인)
             $('#reserve-btn').click(()=>{
@@ -153,10 +152,7 @@
         },
 
         mapdisplay: function() {
-            // 받아온 집의 longitude와 latitude로 지도 중심 설정
-            <%--var longitude = parseFloat('<c:out value="${house.longitude}"/>');--%>
-            <%--var latitude = parseFloat('<c:out value="${house.latitude}"/>');--%>
-            // console.log(house);
+
             var centerPosition = new kakao.maps.LatLng(${house.longitude}, ${house.latitude});
 
             var mapContainer = document.getElementById('map'),
