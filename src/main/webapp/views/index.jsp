@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="icon" href="<c:url value="/img/favicon.png"/>">
 
 <html>
 <head>
-    <title>ReHousing</title>
+    <title>ReHousing - 빈 집 찾기 서비스</title>
 </head>
 <style>
     body {
@@ -303,7 +304,7 @@
     <div id="header-links">
         <a href="<c:url value="/house/list"/>" class="header-link">전체 조회</a>
         <a href="#" class="header-link" onclick="checkLogin()">지원자격 확인</a>
-        <a href="#" class="header-link">사업 소개</a>
+        <a href="https://www.lh.or.kr/menu.es?mid=a10403040400" class="header-link">사업 소개</a>
     </div>
 </header>
 <c:choose>
