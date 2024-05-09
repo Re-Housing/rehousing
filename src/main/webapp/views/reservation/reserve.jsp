@@ -85,6 +85,7 @@
     }
     .reserve_info {
         padding: 30px;
+        padding-right: 0;
         width: 40%;
     }
     .reserve_info_box {
