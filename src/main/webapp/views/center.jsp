@@ -68,7 +68,7 @@
                     img.src = imgSrc;
 
                     // 클릭 이벤트 핸들러 설정
-                    img.onclick = function(cityNameEng, cityNameKor) {
+                    cityContainer.onclick = function(cityNameEng, cityNameKor) {
                         return function() {
                             window.location.href = '<c:url value="/house/region?cityName=' + cityNameKor + '"/>';
                         };
