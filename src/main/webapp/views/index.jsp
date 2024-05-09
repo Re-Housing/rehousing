@@ -168,6 +168,13 @@
         padding-right: 15px;
     }
 
+    .myInfoClass a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #142231;
+    }
+
     .infoContent {
         margin-left: auto;
         padding-right: 10%;
