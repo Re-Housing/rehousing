@@ -105,8 +105,8 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 10%;
-        height: 80%;
+        padding: 8% 10%;
+        height: 84%;
     }
 
     #infoLogo {
@@ -146,8 +146,8 @@
         flex-direction: column;
         justify-content: space-between;
         font-size: 1.5rem;
-        padding: 10%;
-        height: 80%;
+        padding: 8% 10%;
+        height: 84%;
     }
 
     #memberName {
@@ -177,7 +177,7 @@
 
     .infoContent {
         margin-left: auto;
-        padding-right: 10%;
+        padding-right: 5%;
     }
 
     .loginBtnDiv {
