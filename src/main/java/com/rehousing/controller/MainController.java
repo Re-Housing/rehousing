@@ -43,7 +43,7 @@ public class MainController {
         if (loginMemberDto != null) {
             try {
                 // 상태 업데이트
-                httpSession.setAttribute("memberDto", memberService.getId(loginMemberDto));
+                httpSession.setAttribute("memberDto", memberService.get(loginMemberDto.getMemberId()));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
