@@ -104,7 +104,7 @@
         border-radius: 20px;
         margin-right: 30px;
     }
-    img{
+    .img_size{
         width: 150px;
         height: 150px;
     }
@@ -241,7 +241,7 @@
             <div class="reserve_info">
                 <div class="reserve_info_box">
                     <div class="reservebox2 borderbox">
-                        <div class="img_box"><img src='<c:url value="${house.url}"/>'/>
+                        <div class="img_box"><img class="img_size" src='<c:url value="${house.url}"/>'/>
                         </div>
                         <div>
                             <h3 id="address">${house.address}</h3>
@@ -278,15 +278,15 @@
             <hr>
             <div class="payment_kind_box" >
                 <div class="payment_kind" value="신용카드">
-                    <img class="pay_img" src='<c:url value="/img/card.png"/>' alt="카드결제"/>
+                    <img class="pay_img img_size" src='<c:url value="/img/card.png"/>' alt="카드결제"/>
                     <div><h3>신용카드</h3></div>
                 </div>
                 <div class="payment_kind" value="무통장입금">
-                    <img class="pay_img" src='<c:url value="/img/account.png"/>' alt="무통장입금"/>
+                    <img class="pay_img img_size" src='<c:url value="/img/account.png"/>' alt="무통장입금"/>
                     <div><h3>무통장입금</h3></div>
                 </div>
                 <div class="payment_kind" value="카카오페이">
-                    <img class="pay_img" src='<c:url value="/img/kakaopay.png"/>' alt="카카오페이"/>
+                    <img class="pay_img img_size" src='<c:url value="/img/kakaopay.png"/>' alt="카카오페이"/>
                     <div><h3>카카오페이</h3></div>
                 </div>
             </div>
@@ -528,14 +528,11 @@
             console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
             let oldDate = new Date(start);
             let newDate = new Date(end);
-            for(let i; i<disabledDateRanges.length; i++){
+            for(let i=0; i<disabledDateRanges.length; i++){
                 let range = disabledDateRanges[i];
-                alert(range);
-                if(oldDate<=range.startdate&&newDate>=range.startdate){
-                    alert("이미 예약된 날짜가 포함되어 있습니다. 다시 선택해주세요");
-                    return;
-                }
-                if(oldDate>=range.enddate&&newDate<=range.enddate){
+                let rangestart = new Date(range.startdate);
+                let rangeend = new Date(range.enddate);
+                if(oldDate<=rangestart&&newDate>=rangeend){
                     alert("이미 예약된 날짜가 포함되어 있습니다. 다시 선택해주세요");
                     return;
                 }
