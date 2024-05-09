@@ -33,7 +33,6 @@
         align-items: center;
     }
     #reservation_detail_box{
-        /*backdrop-filter: blur(5px);*/
         /*display: none;*/
         /*position: relative;*/
         /*align-items: center;*/
@@ -51,12 +50,12 @@
         display: none; /* 처음에는 보이지 않도록 설정 */
     }
     #inner_detail_box{
+        backdrop-filter: blur(5px);
         border: none;
         background: #FFFFFF;
         box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.1);
         border-radius: 30px;
         width: 400px;
-        backdrop-filter: blur(5px);
         display: none;
     }
     #btn_cancle{
@@ -151,7 +150,7 @@
         background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경 색 */
         z-index: 100; /* 모달 위로 배치 */
         display: none; /* 처음에는 보이지 않도록 설정 */
-    }
+        }
 </style>
 
 <script>
@@ -282,7 +281,7 @@
     </div>
     </div>
 </div>
-<div id="modal-background"></div>
+<%--<div id="modal-background"></div>--%>
 <div id="reservation_detail_box">
         <div id="inner_detail_box">
             <div id="inner_detail_box1">
