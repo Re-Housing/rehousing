@@ -20,6 +20,6 @@
         FROM house h left join house_pic hp
         on h.house_idx = hp.house_id
         WHERE house_idx=#{houseIdx}
-
     </select>
+
 </mapper>

@@ -13,4 +13,5 @@ public interface HouseRepository extends RehousingRepository<String, HouseDto> {
     List<HouseDto> selectByCity(String cityName) throws Exception;
     HouseDto selectByIdx(Integer houseIdx) throws Exception;
 
+
 }

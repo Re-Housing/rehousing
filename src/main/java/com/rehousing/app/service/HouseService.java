@@ -43,4 +43,5 @@ public class HouseService implements RehousingService<String, HouseDto> {
     public HouseDto getByIdx(Integer s) throws Exception {
         return houseRepository.selectByIdx(s);
     }
+
 }
