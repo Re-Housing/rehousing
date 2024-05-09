@@ -63,6 +63,9 @@
         font-weight: bold;
         font-size: 1.2rem;
     }
+    #btn_payment:hover{
+        cursor: pointer;
+    }
     #v_line {
         border-left: thin solid #9a9a9a;
         height: 400px;
@@ -165,9 +168,13 @@
         height: 50px;
         background: #ffffff;
     }
+    #btn_cancle:hover{
+        cursor: pointer;
+    }
     .payment_kind:hover{
         background-color: lightgray;
         transition: all 0.5s;
+        cursor: pointer;
     }
     .reserve_calender{
         display: flex;
@@ -180,6 +187,9 @@
     }
     #address{
         word-break: keep-all;
+    }
+    #daterange{
+        width: 240px;
     }
 </style>
 
@@ -390,7 +400,7 @@
                     $('#inner_payment').css('display', 'none');
                     reserve.paysuccess(rsp,3);
                 } else {
-                    alert("실패");
+                    alert("결제에 실패했습니다. 다시 시도해주세요");
                     console.log(rsp);
                 }
             });
@@ -518,6 +528,18 @@
             console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
             let oldDate = new Date(start);
             let newDate = new Date(end);
+            for(let i; i<disabledDateRanges.length; i++){
+                let range = disabledDateRanges[i];
+                alert(range);
+                if(oldDate<=range.startdate&&newDate>=range.startdate){
+                    alert("이미 예약된 날짜가 포함되어 있습니다. 다시 선택해주세요");
+                    return;
+                }
+                if(oldDate>=range.enddate&&newDate<=range.enddate){
+                    alert("이미 예약된 날짜가 포함되어 있습니다. 다시 선택해주세요");
+                    return;
+                }
+            }
             let diff = Math.abs(newDate.getTime() - oldDate.getTime());
             diff = Math.ceil(diff / (1000 * 60 * 60 * 24));
             $('#showrange').text(diff+'박');

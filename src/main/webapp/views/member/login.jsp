@@ -88,6 +88,10 @@
         flex: auto;
     }
 
+    .keepword{
+        word-break: keep-all;
+    }
+
     #hrWrap span {
         padding: 0 10px;
         width: 30px;
@@ -170,7 +174,7 @@
             </div>
             <div id="hrWrap">
                 <hr class="bar">
-                <span>또는</span>
+                <span class="keepword">또는</span>
                 <hr class="bar">
             </div>
             <div id="kakaoDiv">
