@@ -176,7 +176,9 @@
                                     <img src="<c:url value="/img/like.png"/>"/><span>찜 개수</span><span class="infoContent">0 개</span>
                                 </div>
                                 <div class="myInfoClass">
-                                    <img src="<c:url value="/img/reserve.png"/>"/><span>예약 현황</span>
+                                    <a href="reserve/view">
+                                        <img src="<c:url value="/img/reserve.png"/>"/><span>예약 현황</span>
+                                    </a>
                                 </div>
                                 <div class="loginBtnDiv">
                                     <button id="logoutBtn" class="loginBtn">로그아웃</button>
