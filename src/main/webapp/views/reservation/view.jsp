@@ -103,7 +103,7 @@
                                     <h3><fmt:formatNumber type="number" pattern="###,###원" value="${rList.totalprice}"/></h3>
                                 </div>
                                 <c:if test="${rList.resStatus=='예약완료'}">
-                                    <div>
+                                    <div class="reserve_status">
                                         <h4 onclick="reserveDetail(${rList.resId})">상세보기</h4>
                                         <c:if test="${rList.startdate.after(today)}">
                                             <h5 onclick="reserveCancle(${rList.resId})">예약취소</h5>
@@ -111,7 +111,7 @@
                                     </div>
                                 </c:if>
                                 <c:if test="${rList.resStatus=='예약취소'}">
-                                    <div>
+                                    <div class="reserve_status">
                                         <h4>취소된 예약</h4>
                                     </div>
                                 </c:if>
@@ -182,8 +182,8 @@
 
 <style>
     .toolbox{
-        position: absolute;
-        width: 100%;
+        height: calc(100% - 175px);
+        padding: 50px 15%;
     }
     .divbottom{
         border-bottom: 1px solid #9a9a9a;
@@ -199,9 +199,7 @@
         flex-direction: column;
     }
     .totalbox {
-        height: calc(100% - 175px);
-        max-height: 100vh;
-        padding: 50px 15%;
+        height: 100%;
     }
     .reservebox3 {
         justify-content: space-between;
@@ -283,7 +281,14 @@
     }
     #reserve_detail_inner4{
         margin-left: 20px;
-        width:50%;
+        width: 40%;
+    }
+    .reserve_status {
+        margin-left: 7%;
+    }
+
+    .reserve_status h4, h5 {
+        cursor: pointer;
     }
     .inner_margin{
         margin-left:20px;

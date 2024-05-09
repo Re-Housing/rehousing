@@ -116,9 +116,19 @@
 
 <script>
     $(function () {
-        $('#loginBtn').click(() => {
+        let loginUser = () => {
             let id = $('#id').val();
             let pw = $('#pw').val();
+
+            if (!id) {
+                alert('아이디를 입력해주세요');
+                return;
+            }
+
+            if (!pw) {
+                alert('비밀번호를 입력해주세요');
+                return;
+            }
 
             $.ajax({
                 url: '<c:url value="/loginimpl"/>',
@@ -137,7 +147,17 @@
                     }
                 }
             })
+        }
+
+        // 엔터 키가 눌렸을 때 로그인 함수 호출
+        $('#id, #pw').keydown(function(event) {
+            if (event.keyCode === 13) {
+                loginUser();
+            }
         });
+
+        // 로그인 버튼을 클릭했을 때 로그인 함수 호출
+        $('#loginBtn').click(loginUser);
 
         $('#kakaoLoginBtn').click(() => {
             window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&prompt=login&client_id=' +
