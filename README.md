@@ -52,8 +52,6 @@
 ## 🛠️ 기술 스택
 
 #### Environment
-
-<img src="https://img.shields.io/badge/intellijidea-000000?style=flat&logo=intellijidea&logoColor=white">
 <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
 
 #### Development
