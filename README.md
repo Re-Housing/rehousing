@@ -73,8 +73,7 @@
 ## 🛠️ 기술 스택
 
 #### Environment
-<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white"/>
-<img src="https://img.shields.io/badge/Notion-FFCCCC?style=flat&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white"> <img src="https://img.shields.io/badge/Notion-FFCCCC?style=flat&logo=Notion&logoColor=white"/>
 
 
 #### Development
