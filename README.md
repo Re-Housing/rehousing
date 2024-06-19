@@ -1,8 +1,7 @@
 # rehousing
 빈집 관련 정부 정책 백업 시스템 개발 프로젝트
 
-![image](https://github.com/Re-Housing/rehousing/assets/114149911/1f69c1aa-b4b7-4767-a65d-c2a51b640344)
-
+<img width="1512" alt="커버" src="https://github.com/Re-Housing/rehousing/assets/114149911/cd9c9a21-53cd-4a52-987f-2878d5c62cdf">
 ### Index
 
 - [⚡️ 프로젝트 정보](#%EF%B8%8F-프로젝트-정보)
@@ -49,7 +48,7 @@
 - 지역별 빈집 조회
 
 - 빈집 예약
-![image](https://github.com/Re-Housing/rehousing/assets/114149911/91d51c4d-e62c-442d-a1ae-88ab9492bfd6)
+<img width="600" height="400" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">
 
 - 빈집 예약 결제
 
