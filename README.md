@@ -49,6 +49,7 @@
 - 지역별 빈집 조회
 
 - 빈집 예약
+<img src="https://github.com/Re-Housing/rehousing/assets/114149911/91d51c4d-e62c-442d-a1ae-88ab9492bfd6" height=150 width=300/>
 
 - 빈집 예약 결제
 
