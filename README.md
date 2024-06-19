@@ -1,7 +1,7 @@
 # rehousing
 빈집 관련 정부 정책 백업 시스템 개발 프로젝트
 
-![표지]
+![image](https://github.com/Re-Housing/rehousing/assets/114149911/1f69c1aa-b4b7-4767-a65d-c2a51b640344)
 
 ### Index
 
