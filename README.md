@@ -84,7 +84,7 @@
 
 <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java5&logoColor=white"> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"> <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/JSP-CC6699?style=flat&logo=jsp&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-1572B6?style=flat&logo=jQuery&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/JSP-CC6699?style=flat&logo=Jsp&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-CC6666?style=flat&logo=jQuery&logoColor=white">
 
 #### DataBase
 
@@ -95,7 +95,7 @@
 <img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"> <img src="https://img.shields.io/badge/Notion-FFFF99?style=flat&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/Discord-CC9966?style=flat&logo=discord&logoColor=white">
 
 #### Server
-<img src="https://img.shields.io/badge/aws-FF3333?style=flat&logo=aws&logoColor=white"> <img src="https://img.shields.io/badge/Apache_Tomcat-CC6699?style=flat&logo=Apache-Tomcat&logoColor=white"> 
+<img src="https://img.shields.io/badge/aws-FF3333?style=flat&logo=Aws&logoColor=white"> <img src="https://img.shields.io/badge/Apache_Tomcat-CC6699?style=flat&logo=Apache-Tomcat&logoColor=white"> 
 
 #### Design
 <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white">
