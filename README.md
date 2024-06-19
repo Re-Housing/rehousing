@@ -55,6 +55,7 @@
 ![빈집 전체 조회 및 상세](https://github.com/Re-Housing/rehousing/assets/114149911/4b55abc9-92a0-4aac-b017-12784b586624)
 
 - 지역별 빈집 조회
+![지역별 빈집 조회](https://github.com/Re-Housing/rehousing/assets/114149911/4944f336-c11a-4fd6-951b-3dac66834857)
 
 - 빈집 예약
   
@@ -66,6 +67,8 @@
 ![결제](https://github.com/Re-Housing/rehousing/assets/114149911/478c3aa8-804b-4fb8-8ffe-3b349bbd220c)
 
 - 빈집 예약 취소
+
+![예약 취소](https://github.com/Re-Housing/rehousing/assets/114149911/7c1d9c6e-0071-4edb-b1c5-42283ad8ca53)
 
 - 빈집 예약 조회 및 상세
 <img width="700" height="350" alt="예약조회" src="https://github.com/Re-Housing/rehousing/assets/114149911/16e8067f-7cc9-4205-87ff-19086a66f9fc">
