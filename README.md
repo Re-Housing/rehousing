@@ -48,7 +48,7 @@
 - 지역별 빈집 조회
 
 - 빈집 예약
-<img width="600" height="400" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">
+<img width="700" height="350" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">
 
 - 빈집 예약 결제
 
@@ -68,7 +68,8 @@
 <br/>
 
 ## 🏕️ 아키텍처
-![image](https://github.com/Re-Housing/rehousing/assets/114149911/9eca1e1b-88d9-41db-9fb8-9b86520aebe9)
+![image](https://github.com/Re-Housing/rehousing/assets/114149911/d2d23c6f-1a0a-4e90-bf83-22781a95ca12)
+
 
 ## 🛠️ 기술 스택
 
