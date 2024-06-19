@@ -66,7 +66,8 @@
 <br/>
 
 ## 🏕️ 아키텍처
-추가예정입니다.
+![image](https://github.com/Re-Housing/rehousing/assets/114149911/e67e13df-da78-41de-9b80-a7a5567f9439)
+
 
 ## 🛠️ 기술 스택
 
