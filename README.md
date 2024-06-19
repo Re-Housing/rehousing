@@ -50,8 +50,6 @@
 - 지역별 빈집 조회
 
 - 빈집 예약
-<img width="700" height="350" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">
-
 |빈집 예약|
 |:---:|
 |<img width="700" height="350" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">|
