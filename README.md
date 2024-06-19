@@ -77,7 +77,7 @@
 ## 🛠️ 기술 스택
 
 #### Environment
-<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white"> <img src="https://img.shields.io/badge/Notion-FFCCCC?style=flat&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/Figma-CC6699?style=flat&logo=Figma&logoColor=white">
+<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white"> <img src="https://img.shields.io/badge/GitHub-FFCCCC?style=flat&logo=GitHub&logoColor=white"> <img src="https://img.shields.io/badge/Google_Drive-CC6699?style=flat&logo=google-drive&logoColor=white">
 
 
 #### Development
