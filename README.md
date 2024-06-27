@@ -71,8 +71,10 @@
 ![예약 취소](https://github.com/Re-Housing/rehousing/assets/114149911/7c1d9c6e-0071-4edb-b1c5-42283ad8ca53)
 
 - 빈집 예약 조회 및 상세
-<img width="700" height="350" alt="예약조회" src="https://github.com/Re-Housing/rehousing/assets/114149911/16e8067f-7cc9-4205-87ff-19086a66f9fc">
-<img width="700" height="350" alt="예약내역상세" src="https://github.com/Re-Housing/rehousing/assets/114149911/eebda512-b150-447e-862c-df8a5c39a0f4">
+  | 일반 로그인 | 카카오 로그인 |
+  |:--:|:--:|
+  |<img width="700" height="350" alt="예약조회" src="https://github.com/Re-Housing/rehousing/assets/114149911/16e8067f-7cc9-4205-87ff-19086a66f9fc"> |
+<img width="700" height="350" alt="예약내역상세" src="https://github.com/Re-Housing/rehousing/assets/114149911/eebda512-b150-447e-862c-df8a5c39a0f4"> |
     
 
 
