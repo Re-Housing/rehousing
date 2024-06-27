@@ -45,30 +45,40 @@
   |:--:|:--:|
   | ![일반 로그인](https://github.com/Re-Housing/rehousing/assets/114149911/f611ef37-491e-46f6-a15c-e837f2a47e11) | ![카카오 로그인](https://github.com/Re-Housing/rehousing/assets/114149911/ef85f3a1-77b5-4982-ab42-207ca908c74a) |
 
-- 아이디/비밀번호 찾기 
-![비밀번호 찾기](https://github.com/Re-Housing/rehousing/assets/114149911/63d4ebb2-d8c8-417a-a53a-fdba4ecbbdba)
+- 아이디/비밀번호 찾기
+  |아이디/비밀번호 찾기|
+  |:---:|
+  |![비밀번호 찾기](https://github.com/Re-Housing/rehousing/assets/114149911/63d4ebb2-d8c8-417a-a53a-fdba4ecbbdba)|
 
 - 지원자격 조회
-![지원자격 확인](https://github.com/Re-Housing/rehousing/assets/114149911/27fcb7dd-5b13-4e00-a39a-182d0e58fab0)
+  |지원자격 조회|
+  |:---:|
+  |![지원자격 확인](https://github.com/Re-Housing/rehousing/assets/114149911/27fcb7dd-5b13-4e00-a39a-182d0e58fab0)|
 
 - 빈집 전체 조회 및 상세
-![빈집 전체 조회 및 상세](https://github.com/Re-Housing/rehousing/assets/114149911/4b55abc9-92a0-4aac-b017-12784b586624)
+  |빈집 전체 조회 및 상세|
+  |:---:|
+  |![빈집 전체 조회 및 상세](https://github.com/Re-Housing/rehousing/assets/114149911/4b55abc9-92a0-4aac-b017-12784b586624)|
 
 - 지역별 빈집 조회
-![지역별 빈집 조회](https://github.com/Re-Housing/rehousing/assets/114149911/4944f336-c11a-4fd6-951b-3dac66834857)
+  |지역별 빈집 조회|
+  |:---:|
+  |![지역별 빈집 조회](https://github.com/Re-Housing/rehousing/assets/114149911/4944f336-c11a-4fd6-951b-3dac66834857)|
 
 - 빈집 예약
-  
-|빈집 예약|
-|:---:|
-|<img width="700" height="350" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">|
+  |빈집 예약|
+  |:---:|
+  |<img width="700" height="350" alt="예약" src="https://github.com/Re-Housing/rehousing/assets/114149911/913ba259-8c96-47f3-9587-1d542d1b3a7e">|
 
 - 빈집 예약 결제
-![결제](https://github.com/Re-Housing/rehousing/assets/114149911/478c3aa8-804b-4fb8-8ffe-3b349bbd220c)
+  |빈집 예약 결제|
+  |:---:|
+  |![결제](https://github.com/Re-Housing/rehousing/assets/114149911/478c3aa8-804b-4fb8-8ffe-3b349bbd220c)|
 
 - 빈집 예약 취소
-
-![예약 취소](https://github.com/Re-Housing/rehousing/assets/114149911/7c1d9c6e-0071-4edb-b1c5-42283ad8ca53)
+  |빈집 예약 취소|
+  |:---:|
+  |![예약 취소](https://github.com/Re-Housing/rehousing/assets/114149911/7c1d9c6e-0071-4edb-b1c5-42283ad8ca53)|
 
 - 빈집 예약 조회 및 상세
   | 일반 로그인 | 카카오 로그인 |
