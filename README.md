@@ -42,7 +42,7 @@
 
 - 일반 로그인/카카오 로그인
   | 일반 로그인 | 카카오 로그인 |
-  |--|--|
+  |:--|--:|
   | ![일반 로그인](https://github.com/Re-Housing/rehousing/assets/114149911/f611ef37-491e-46f6-a15c-e837f2a47e11) | ![카카오 로그인](https://github.com/Re-Housing/rehousing/assets/114149911/ef85f3a1-77b5-4982-ab42-207ca908c74a) |
 
 - 아이디/비밀번호 찾기 
