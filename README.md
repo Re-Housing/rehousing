@@ -1,31 +1,32 @@
-# rehousing
-빈집 관련 정부 정책 백업 시스템 개발 프로젝트
+# Re-Housing
+<b>빈집 관련 정부 정책 백업 시스템 개발 프로젝트<b/>
 
-<img width="1512" alt="커버" src="https://github.com/Re-Housing/rehousing/assets/114149911/cd9c9a21-53cd-4a52-987f-2878d5c62cdf">
-### Index
+<br>
+<br>
+
+<img alt="커버" src="https://github.com/Re-Housing/rehousing/assets/114149911/cd9c9a21-53cd-4a52-987f-2878d5c62cdf">
+
+<br>
+<br>
 
 - [⚡️ 프로젝트 정보](#%EF%B8%8F-프로젝트-정보)
 - [🔥 작업 기간](#-작업-기간)
 - [📌 프로젝트 및 기능 소개](#-프로젝트-및-기능-소개)
 - [🌳 기대효과](#-기대효과)
-- [🏕️ 아키텍처](#-아키텍처)
+- [🏕️ 아키텍처](#%EF%B8%8F-아키텍처)
 - [🛠️ 기술 스택](#%EF%B8%8F-기술-스택)
 - [📚 프로젝트 구조](#-프로젝트-구조)
 - [🦸🏻‍ 팀원 및 역할](#-팀원-및-역할)
 
-<br/>
+<br>
 
 ## ⚡️ 프로젝트 정보
 
 - [빈집 관련 정부 정책 백업 시스템 개발 프로젝트]
 
-<br/>
-
 ## 🔥 작업 기간
 
 - 2024.04.26 - 2024.05.10
-
-<br/>
 
 ## 📌 프로젝트 및 기능 소개
 
@@ -33,7 +34,7 @@
 
 정부 정책 백업 플랫폼, **Rehousing**입니다.
 
-💬빈집을 조회하고 예약할 수 있습니다.
+💬 빈집을 조회하고 예약할 수 있습니다.
 
 - 회원가입
   |회원가입|
@@ -104,25 +105,35 @@
 ## 🛠️ 기술 스택
 
 #### Environment
-<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white"> <img src="https://img.shields.io/badge/GitHub-FFCCCC?style=flat&logo=GitHub&logoColor=white"> <img src="https://img.shields.io/badge/Google_Drive-CC6699?style=flat&logo=google-drive&logoColor=white">
+<img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=flat&logo=intellij-idea&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-FFCCCC?style=flat&logo=GitHub&logoColor=white">
+<img src="https://img.shields.io/badge/Google_Drive-CC6699?style=flat&logo=google-drive&logoColor=white">
 
 
 #### Development
 
-<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=Java5&logoColor=white"> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white"> <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white">
+<img src="https://img.shields.io/badge/Java-007396?style=flat&logo=OpenJDK&logoColor=white">
+<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=Spring Boot&logoColor=white">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=Javascript&logoColor=white">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/JSP-CC6699?style=flat&logo=Jsp&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-CC6666?style=flat&logo=jQuery&logoColor=white">
+<img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/JSP-CC6699?style=flat&logo=Jsp&logoColor=white">
+<img src="https://img.shields.io/badge/jQuery-CC6666?style=flat&logo=jQuery&logoColor=white">
 
 #### DataBase
 
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"> <img src="https://img.shields.io/badge/MyBatis-660033?style=flat&logo=MyBatis&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white">
+<img src="https://img.shields.io/badge/MyBatis-660033?style=flat&logo=MyBatis&logoColor=white">
 
 #### Communication
 
-<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"> <img src="https://img.shields.io/badge/Notion-FFFF99?style=flat&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/Discord-CC9966?style=flat&logo=discord&logoColor=white">
+<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white">
+<img src="https://img.shields.io/badge/Notion-FFFF99?style=flat&logo=Notion&logoColor=white">
+<img src="https://img.shields.io/badge/Discord-CC9966?style=flat&logo=discord&logoColor=white">
 
 #### Server
-<img src="https://img.shields.io/badge/aws-FF3333?style=flat&logo=Aws&logoColor=white"> <img src="https://img.shields.io/badge/Apache_Tomcat-CC6699?style=flat&logo=Apache-Tomcat&logoColor=white"> 
+<img src="https://img.shields.io/badge/AWS-FF3333?style=flat&logo=Amazon&logoColor=white"> 
+<img src="https://img.shields.io/badge/Apache_Tomcat-CC6699?style=flat&logo=Apache-Tomcat&logoColor=white"> 
 
 #### Design
 <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white">
